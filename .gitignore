@@ -1,1 +1,3 @@
 */*.tar.*
+*/.footprint
+*/.md5sum
