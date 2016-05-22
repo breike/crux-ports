@@ -1,0 +1,34 @@
+# Description: Powerful and easy-to-use GUI multimedia player.	
+# URL:	https://bomi-player.github.io/
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on: ffmpeg, mesa, python, gcc, qt5, libchardet, libass, glew, libbluray, libdvdnav, libdvdread, mpg123,libva
+# Optional: libcdio, libcdio-paranoia, jack, pulseaudio, samba, systemd
+
+name=bomi
+version=git
+release=1
+source=($name-compilation-fix.patch \
+	$name-fix-expected-unqualified-id-before-numeric-constant-unix.patch \
+	$name-gets-declaration.patch)
+
+build() {
+	cd $SRC
+	if cd $PKGMK_ROOT/$name ; then
+		git pull
+	else
+		git clone https://github.com/xylosper/bomi $PKGMK_ROOT/$name
+	fi
+
+	cp -r $PKGMK_ROOT/$name $SRC/ && cd $SRC/$name
+
+	patch -d $SRC/$name -p1 -i $SRC/$name-gets-declaration.patch
+	patch -d $SRC/$name -p1 -i $SRC/$name-compilation-fix.patch
+	patch -d $SRC/$name -p1 -i $SRC/$name-fix-expected-unqualified-id-before-numeric-constant-unix.patch
+
+	./configure --prefix=/usr \
+		    --qtsdk=/usr/share/qt5 \
+		    --qmake=/usr/share/qt5/bin/qmake-qt5 \
+		    --disable-systemd
+	make
+	make DEST_DIR=$PKG install
+}

@@ -1,0 +1,63 @@
+diff -Nru a/src/bomi/misc/filenamegenerator.hpp b/src/bomi/misc/filenamegenerator.hpp
+--- a/src/bomi/misc/filenamegenerator.hpp	2015-05-20 11:31:58.000000000 +0200
++++ b/src/bomi/misc/filenamegenerator.hpp	2016-03-16 08:13:54.000000000 +0100
+@@ -11,7 +11,7 @@
+     QTime start, end;
+     QString mediaName;
+     Mrl mrl;
+-    quint64 unix = 0;
++    quint64 UNIX = 0;
+ };
+ 
+ #endif // FILENAMEGENERATOR_HPP
+diff -Nru a/src/bomi/misc/filenamegenerator.cpp b/src/bomi/misc/filenamegenerator.cpp
+--- a/src/bomi/misc/filenamegenerator.cpp	2015-05-20 11:31:58.000000000 +0200
++++ b/src/bomi/misc/filenamegenerator.cpp	2016-03-16 08:56:18.000000000 +0100
+@@ -51,8 +51,8 @@
+         };
+         get[u"%MEDIA_DISPLAY_NAME%"_q] = [] (const FileNameGenerator *g) { return g->mediaName; };
+ 
+-        get[u"%UNIX%"_q]     = [] (const FileNameGenerator *g) { return _N(g->unix / 1000llu); };
+-        get[u"%UNIX_MS%"_q]  = [] (const FileNameGenerator *g) { return _N(g->unix); };
++        get[u"%UNIX%"_q]     = [] (const FileNameGenerator *g) { return _N(g->UNIX / 1000llu); };
++        get[u"%UNIX_MS%"_q]  = [] (const FileNameGenerator *g) { return _N(g->UNIX); };
+         return get;
+     }();
+     auto ret = func.value(ph);
+diff -Nru a/src/bomi/player/mainwindow_p.hpp b/src/bomi/player/mainwindow_p.hpp
+--- a/src/bomi/player/mainwindow_p.hpp	2015-05-20 11:31:58.000000000 +0200
++++ b/src/bomi/player/mainwindow_p.hpp	2016-03-16 08:21:01.000000000 +0100
+@@ -101,7 +101,7 @@
+ 
+     struct {
+         QDate date; QTime time, position;
+-        quint64 unix = 0;
++        quint64 UNIX = 0;
+         QMap<QString, std::function<QString(void)>> get;
+     } ph;
+     QTimer waiter, hider, dialogWorkaround;
+diff -Nru a/src/bomi/player/mainwindow_p.cpp b/src/bomi/player/mainwindow_p.cpp
+--- a/src/bomi/player/mainwindow_p.cpp	2015-05-20 11:31:58.000000000 +0200
++++ b/src/bomi/player/mainwindow_p.cpp	2016-03-16 08:26:51.000000000 +0100
+@@ -910,7 +910,7 @@
+     g.dateTime = QDateTime::currentDateTime();
+     g.start = QTime::fromMSecsSinceStartOfDay(e.time());
+     g.end = end.isNull() ? g.start : end;
+-    g.unix = QDateTime::currentMSecsSinceEpoch();
++    g.UNIX = QDateTime::currentMSecsSinceEpoch();
+     g.mrl = e.mrl();
+     g.mediaName = e.media()->name();
+     return g;
+diff -Nru a/src/bomi/dialog/encoderdialog.cpp b/src/bomi/dialog/encoderdialog.cp
+--- a/src/bomi/dialog/encoderdialog.cpp	2015-05-20 11:31:58.000000000 +0200
++++ b/src/bomi/dialog/encoderdialog.cpp	2016-03-16 08:34:11.000000000 +0100
+@@ -255,7 +255,7 @@
+ {
+     if (d->size.isEmpty())
+         return tr("No video stream exists.");
+-    d->g.unix = QDateTime::currentMSecsSinceEpoch();
++    d->g.UNIX = QDateTime::currentMSecsSinceEpoch();
+     d->g.dateTime = QDateTime::currentDateTime();
+     d->g.start = d->ui.a->time();
+     d->g.end = d->ui.b->time();
+ 

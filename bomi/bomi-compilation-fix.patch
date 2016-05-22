@@ -1,0 +1,33 @@
+diff -aur a/src/bomi/configure.pro.in b/src/bomi/configure.pro.in
+--- a/src/bomi/configure.pro.in
++++ b/src/bomi/configure.pro.in
+@@ -1,5 +1,6 @@
+ CONFIG += @config@
+ LIBS += @rootdir@/build/lib/libmpv.a @libs@
+ QMAKE_CXXFLAGS += @cflags@
++QMAKE_CXXFLAGS -= -g
+ QMAKE_CC = @cc@
+ QMAKE_CXX = @cxx@
+diff -aur a/src/bomi/misc/windowsize.cpp b/src/bomi/misc/windowsize.cpp
+--- a/src/bomi/misc/windowsize.cpp
++++ b/src/bomi/misc/windowsize.cpp
+@@ -100,7 +100,7 @@
+     QList<WindowSize> values; values.reserve(s_count);
+     for (int i = 0; i < s_count; ++i) {
+         auto &w = d->widgets[i];
+-        values.push_back({ w.base->currentIndex(), w.percent->value() * 1e-2 });
++        values.push_back({ static_cast<bool>(w.base->currentIndex()), w.percent->value() * 1e-2 });
+     }
+     Q_ASSERT(values.size() == s_count);
+     return values;
+diff -Nru a/src/bomi/bomi.pro b/src/bomi/bomi.pro
+--- a/src/bomi/bomi.pro	2015-05-20 11:31:58.000000000 +0200
++++ b/src/bomi/bomi.pro	2016-03-16 08:13:12.000000000 +0100
+@@ -1,6 +1,6 @@
+ TEMPLATE = app
+ CONFIG += link_pkgconfig debug_and_release precompile_header \
+-	c++11 object_parallel_to_source
++	c++11 c++14 object_parallel_to_source
+ macx:CONFIG -= app_bundle
+ 
+ QT = core gui network quick widgets sql xml svg
