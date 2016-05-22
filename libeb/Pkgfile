@@ -1,0 +1,17 @@
+# Description: A C library for accessing CD-ROM books, supports EB, EBG, EBXA, EBXA-C, S-EBXA and EPWING formats.
+# URL: http://www.sra.co.jp/people/m-kasahr/eb/
+# Maintainer: Jake Slazenger jake dot slazenger mail yandex dot com
+# Depends on:
+
+name=libeb
+version=4.4.3
+release=1
+source=(ftp://ftp.sra.co.jp/pub/misc/eb/eb-$version.tar.bz2)
+
+build()
+{
+	cd eb-$version
+	./configure --prefix=/usr
+	make
+	make DESTDIR=$PKG install
+}
