@@ -1,7 +1,7 @@
 # Description:	Broadcom 802.11 Linux STA wireless driver
 # URL:		http://www.broadcom.com/support/802.11/linux_sta.php
-# Maintainer: 	lee, rtlanceroad at gmail dot com
-# Packager:	lee, rtlanceroad at gmail dot com
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Packager: 	lee, rtlanceroad at gmail dot com
 # Depends on:
 name=broadcom-wl
 version=6.30.223.271
