@@ -1,0 +1,31 @@
+# Description:	KDE Multimedia API
+# URL:		http://www.kde.org
+# Maintainer:	Jake Slazenger jake dot slazenger at yandex dot com
+# Packager: Alan Mizrahi, alan at mizrahi dot com dot ve
+# Depends on:	cmake qt4 glib libxml2 xine-lib xorg-libxcb automoc4
+# Optional:	libqzeitgeist
+
+name=phonon
+version=4.8.3
+release=2
+source=(http://download.kde.org/stable/$name/$version/src/$name-$version.tar.xz)
+
+build() {
+	# To prevent compilation of a particular component, set DO_NOT_COMPILE
+	# to a subset of:
+	# cmake phonon includes qt7 ds9 gstreamer xine
+	# Eg:
+	# export DO_NOT_COMPILE=""
+	export DO_NOT_COMPILE="$DO_NOT_COMPILE doc"
+
+	cat $name-$version/CMakeLists.txt | egrep -v 'add_subdirectory *\( *'`echo $DO_NOT_COMPILE |tr ' ' '|'`' *\)' > $name-$version/CMakeLists.txt
+
+	mkdir build; cd build
+	cmake ../$name-$version \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DCMAKE_BUILD_TYPE=RELEASE \
+		-DPHONON_INSTALL_QT_EXTENSIONS_INTO_SYSTEM_QT=ON
+	make
+	make DESTDIR=$PKG install
+	rm -f $PKG/usr/share/phonon/buildsystem/COPYING-CMAKE-SCRIPTS
+}
