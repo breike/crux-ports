@@ -1,0 +1,19 @@
+# Description: Tools for monitoring system health (temperatures, voltages, fan speed, etc)
+# URL: http://www.lm-sensors.org
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Packager: Jose V Beneyto, sepen at crux dot nu
+# Depends on: perl
+# Nice to have: i2c-tools
+
+name=lm_sensors
+version=3.4.0
+release=1
+source=(http://http.debian.net/debian/pool/main/l/lm-sensors/lm-sensors_3.4.0.orig.tar.bz2)
+
+build () {
+  cd $name-$version
+
+  make install PREFIX=/usr \
+               ETCDIR=/usr/etc \
+               DESTDIR=$PKG
+}

@@ -16,7 +16,7 @@ build() {
 	patch -p1 -i $SRC/001-null-pointer-fix.patch
 
 	make
-	make DESTDIR=$PKG install
+	#make DESTDIR=$PKG install
 	mkdir -p $PKG/lib/modules/$(uname -r)/kernel/drivers/net/wireless/
 	cp $SRC/wl.ko $PKG/lib/modules/$(uname -r)/kernel/drivers/net/wireless/
 	

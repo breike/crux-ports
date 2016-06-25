@@ -1,0 +1,15 @@
+# Description:  Python module for JSON
+# URL:          http://pypi.python.org/pypi/simplejson/
+# Depends on:   python3
+
+name=python3-simplejson
+version=3.8.2
+release=1
+source=(http://pypi.python.org/packages/source/s/simplejson/simplejson-$version.tar.gz)
+
+build() {
+	cd simplejson-$version
+	python3 setup.py build
+	python3 setup.py install --root=$PKG
+	find $PKG -name '*egg-info' -exec rm -rf {} +
+}

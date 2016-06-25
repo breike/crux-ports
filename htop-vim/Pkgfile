@@ -1,0 +1,25 @@
+# Maintainer:   Jake Slazenger jake dot slazenger at yandex dot com
+# Description:  an interactive process viewer with vim keybindings
+# URL:          http://hisham.hm/htop
+# Depends on:   ncurses
+
+name=htop-vim
+version=git
+release=1
+source=()
+
+build() {
+	if cd $name; then
+		git fetch -q; git reset --hard origin/master
+	else
+		git clone https://github.com/KoffeinFlummi/htop-vim $name
+		cd $name
+	fi
+	./autogen.sh
+	./configure --prefix=/usr --mandir=/usr/share/man
+	make
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/{include,lib}
+	rm -rf $PKG/usr/share/{applications,pixmaps}
+}

@@ -1,0 +1,17 @@
+# Description:  A pythonic binding for the libxml2 and libxslt libraries.
+# URL:         http://lxml.de/
+# Packager:    6c37 Team, https://github.com/6c37/crux-ports/issues
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  python3 libxslt
+
+name=python3-lxml
+version=3.4.4
+release=2
+source=(http://lxml.de/files/lxml-$version.tgz)
+
+build() {
+	cd lxml-$version
+
+	python3 setup.py build
+	python3 setup.py install --root $PKG
+}

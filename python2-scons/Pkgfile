@@ -1,0 +1,16 @@
+# Description: Software construction tool.
+# URL: http://www.scons.org/
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Packager: Tilman Sauerbeck, tilman at crux dot nu
+# Depends on: python2
+
+name=python2-scons
+version=2.3.0
+release=1
+source=(http://download.sourceforge.net/scons/scons-$version.tar.gz)
+
+build() {
+	cd scons-$version
+
+	python2 setup.py install --prefix=/usr --root=$PKG
+}

@@ -1,0 +1,15 @@
+# Description: World timezone definitions, modern and historical.
+# URL: https://pypi.python.org/pypi/pytz
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:
+
+name=python2-pytz
+version=2016.4
+release=1
+source=(https://pypi.python.org/packages/ad/30/5ab2298c902ac92fdf649cc07d1b7d491a241c5cac8be84dd84464db7d8b/pytz-2016.4.tar.gz)
+
+build()
+{
+	cd pytz-$version
+	python2 setup.py install --root=$PKG --prefix=/usr
+}

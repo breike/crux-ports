@@ -12,7 +12,6 @@ source=($name-compilation-fix.patch \
 	$name-gets-declaration.patch)
 
 build() {
-	cd $SRC
 	if cd $PKGMK_ROOT/$name ; then
 		git pull
 	else
