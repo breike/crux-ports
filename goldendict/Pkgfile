@@ -11,7 +11,10 @@ source=(https://github.com/goldendict/goldendict/archive/$version.tar.gz)
 build()
 {
 	cd $name-$version
-	qmake PREFIX=$PKG/
+	
+	mkdir $PKG/usr
+
+	qmake PREFIX=$PKG/usr
 	make clean
 	make
 	make install
