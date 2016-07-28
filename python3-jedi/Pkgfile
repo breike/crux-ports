@@ -1,0 +1,15 @@
+# Description: Awesome autocompletion and static analysis library for python.
+# URL: https://github.com/davidhalter/jedi
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on: python3
+
+name=python3-jedi
+version=0.9.0
+release=1
+source=(https://github.com/davidhalter/jedi/archive/v${version}.tar.gz)
+
+build()
+{
+	cd jedi-$version
+	python3 setup.py install --prefix=/usr --root=$PKG --optimize=1
+}

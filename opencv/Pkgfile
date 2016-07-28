@@ -1,0 +1,22 @@
+# Description:	Open Computer Vision Library
+# URL:		http://opencvlibrary.sf.net
+# Maintainer:	Alan Mizrahi, alan at mizrahi dot com dot ve
+# Depends on:	cmake gstreamer
+# Optional:	jasper gtk openexr python ant
+
+name=opencv
+version=2.4.9
+release=1
+source=(http://downloads.sourceforge.net/opencvlibrary/$name-$version.zip)
+
+build() {
+	mkdir build
+	cd build
+	cmake ../$name-$version \
+		-DCMAKE_BUILD_TYPE=RELEASE \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		$DO_NOT_COMPILE
+	make
+	make DESTDIR=$PKG install
+	rm -rf $PKG/usr/share/opencv/doc
+}

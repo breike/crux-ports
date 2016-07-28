@@ -1,0 +1,16 @@
+# Description: A Python module for using vk.com's API.
+# URL: https://github.com/python273/vk_api 
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on: python3 python3-requests
+
+name=python3-vk_api
+version=7.2
+release=1
+source=(https://github.com/python273/vk_api/archive/v${version}.tar.gz)
+
+build()
+{
+	cd vk_api-$version
+	python3 setup.py build
+	python3 setup.py install --prefix=/usr --root=$PKG --optimize=1
+}
