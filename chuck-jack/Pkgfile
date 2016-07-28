@@ -4,24 +4,18 @@
 # Depends on: libsndfile alsa-lib pulseaudio gcc make
 # Optional: jack
 
-name=chuck
+name=chuck-jack
 version=1.3.5.2
 release=1
 source=(http://chuck.cs.princeton.edu/release/files/chuck-$version.tgz)
 
 build()
 {
-	cd $name-$version
+	cd chuck-$version
 	cd src
 	
-	make linux-pulse
-	
-	# comment 'make linux-pulse' line and uncomment 'make linux-jack' one if using JACK
-	# make linux-jack
-	
-	# or uncomment this one if using ALSA.
-	#make linux-alsa
+	make linux-jack
 	
 	mkdir $PKG/usr/bin -p
-	install -Dm 755 chuck $PKG/usr/bin/chuck
+	install -Dm 755 chuck $PKG/usr/bin/chuck-jack
 }
