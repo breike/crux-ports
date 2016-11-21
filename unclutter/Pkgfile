@@ -1,7 +1,7 @@
 # Description: Hide X11 Cursor
 # URL: https://sourceforge.net/projects/unclutter/
 # Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on: xorg-imake xorg-libxext xorg-makedep
+# Depends on: xorg-imake xorg-libxext xorg-makedepend xorg-gccmakedep
 
 name=unclutter
 version=1.09
@@ -10,7 +10,6 @@ source=(https://sourceforge.net/projects/unclutter/files/unclutter/source_$versi
 
 build()
 {
-	tar -xvf download
 	cd $name-$version
 	xmkmf -a
 	make

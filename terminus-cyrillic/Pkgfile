@@ -13,15 +13,15 @@ build () {
 	#patch -i alt/ao2.diff
 	patch -i alt/dv1.diff
 	#patch -i alt/ge2.diff
-	#patch -i alt/gq2.diff
+	patch -i alt/gq2.diff
 	#patch -i alt/hi2.diff
 	#patch -i alt/hi2-dv1.diff
 	#patch -i alt/hi2-ka2.diff
 	patch -i alt/ij1.diff
-	#patch -i alt/ka2.diff
-	#patch -i alt/ll2.diff
-	#patch -i alt/td1.diff
+    #patch -i alt/ka2.diff
+	patch -i alt/ll2.diff
+	patch -i alt/td1.diff
 	chmod +x configure
-	./configure --prefix=/usr --x11dir=/usr/share/fonts/local/ --psfdir=/usr/share/kbd/consolefonts/
+	./configure --prefix=/usr --x11dir=/usr/share/fonts/X11/cyrillic --psfdir=/usr/share/kbd/consolefonts/
 	make DESTDIR=$PKG install
 }
