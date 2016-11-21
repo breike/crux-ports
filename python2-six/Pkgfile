@@ -1,0 +1,15 @@
+# Description: Python compatibility utilities.
+# URL: http://pypi.python.org/pypi/six/
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Packager: Danny Rawlins, crux at romster dot me
+# Depends on: python2-setuptools
+
+name=python2-six
+version=1.10.0
+release=1
+source=(http://pypi.python.org/packages/source/s/six/six-$version.tar.gz)
+
+build() {
+	cd six-$version
+	/usr/bin/python2 setup.py install --root=$PKG --optimize=1
+}

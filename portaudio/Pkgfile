@@ -1,0 +1,24 @@
+# Description: A free, cross platform, open source audio I/O library.
+# URL: http://portaudio.com/
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Packager: Danny Rawlins, crux at romster dot me
+# Depends on: alsa-lib
+
+name=portaudio
+version=20161030
+release=1
+source=(http://portaudio.com/archives/pa_stable_v190600_$version.tgz)
+
+build(){
+	cd portaudio
+
+	./configure \
+		--prefix=/usr \
+		--with-host_os \
+		--without-oss \
+	        --enable-cxx
+
+	make CFLAGS="$CFLAGS -fPIC -I$SRC/portaudio/src/common -I$SRC/portaudio/src/os/unix -I$SRC/portaudio/include" CXXFLAGS="$CXXFLAGS -fPIC -I$SRC/portaudio/src/common -I$SRC/portaudio/src/os/unix -I$SRC/portaudio/include" MAKEFLAGS="-j1"
+	make DESTDIR=$PKG install
+}
+

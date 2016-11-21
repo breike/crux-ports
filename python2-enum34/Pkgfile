@@ -1,0 +1,17 @@
+# Description: Python 3.4 Enum backported
+# URL: https://pypi.python.org/pypi/enum34
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Packager: Danny Rawlins, crux at romster dot me
+# Depends on: python2 python2-setuptools
+
+name=python2-enum34
+version=1.1.2
+release=1
+source=(http://pypi.python.org/packages/source/e/$name/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+	/usr/bin/python2 setup.py install --root=$PKG --optimize=1
+
+	rm $PKG/usr/lib/python*/site-packages/enum/{LICENSE,README}
+}
