@@ -11,5 +11,5 @@ source=(http://ajaxsoundstudio.com/downloads/pyo_${version}-src.tar.bz2)
 build()
 {
 	cd pyo_$version-src
-	python2 setup.py install --minimal --root=$PKG --prefix=/usr
+	python2 setup.py install  --root=$PKG --prefix=/usr
 }
