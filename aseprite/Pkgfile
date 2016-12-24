@@ -1,0 +1,36 @@
+# Description: Animated sprite editor & pixel art tool. 
+# URL: http://www.aseprite.org/
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on: googletest
+
+name=aseprite
+version=e20fdc0
+release=1
+source=()
+
+build()
+{
+	cd $PKGMK_SOURCE_DIR
+
+	if cd $name; then
+	#	git fetch -q; git reset --hard origin/master
+		git checkout $version
+		git submodule update  --init --recursive
+		cd ..
+	else
+		git clone git://github.com/aseprite/aseprite $name
+		cd $name
+		git checkout $version
+		git submodule update  --init --recursive
+	fi
+
+	cp -R $name $SRC/ && cd $SRC/$name
+
+	mkdir build && cd build
+	cmake -DCMAKE_INSTALL_PREFIX=/usr \
+	      -DCMAKE_BUILD_TYPE=Release \
+	      -DCMAKE_INCLUDE_FOLDER=/usr/include \
+	      ..
+	make all
+	make DESTDIR=$PKG install
+}

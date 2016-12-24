@@ -3,7 +3,7 @@
 # Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
 # Depends on: python2
 
-name=python3-jedi
+name=python2-jedi
 version=0.9.0
 release=1
 source=(https://github.com/davidhalter/jedi/archive/v${version}.tar.gz)

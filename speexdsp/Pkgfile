@@ -1,0 +1,19 @@
+# Description: Speex DSP library.
+# URL: https://speex.org/downloads/
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:
+
+name=speexdsp
+version=1.2rc3
+release=1
+source=(http://downloads.xiph.org/releases/speex/speexdsp-${version}.tar.gz)
+
+build()
+{
+	cd speexdsp-$version
+	
+	./configure --prefix=/usr 
+
+	make
+	make DESTDIR=$PKG install
+}
