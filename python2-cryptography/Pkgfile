@@ -2,7 +2,7 @@
 # URL: http://pypi.python.org/pypi/cryptography
 # Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: python2 six cffi enum34 pyasn1
+# Depends on: python2 python2-six python2-cffi python2-enum34 python2-pyasn1
 
 name=python2-cryptography
 version=1.2.3

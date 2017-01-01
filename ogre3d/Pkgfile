@@ -1,0 +1,38 @@
+# Description: OGRE (Object-Oriented Graphics Rendering Engine) is a scene-oriented, flexible 3D engine written in C++
+# URL:         http://www.ogre3d.org/
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Packager:  Kristian Lehmann, email at zero-io dot net
+# Depends on: mercurial
+
+name=ogre3d
+version=hg
+release=1
+source=()
+
+build() {
+	
+	cd $PKGMK_SOURCE_DIR
+
+	if cd $name; then
+		hg pull -q;
+	else
+		hg clone https://bitbucket.org/sinbad/ogre/src $name
+		cd $name
+	fi
+
+	mkdir -p build && cd build
+
+	# generate CMake Makefile
+	cmake .. \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DOGRE_INSTALL_PLUGINS_HEADERS=TRUE \
+		-DOGRE_INSTALL_SAMPLES=TRUE \
+		-DOGRE_INSTALL_DOCS=FALSE \
+		-DOGRE_INSTALL_MEDIA=TRUE \
+		-DOGRE_INSTALL_SAMPLES_SOURCE=TRUE \
+		-DCMAKE_BUILD_TYPE=Release # set =Debug for debugging version
+
+	# compile
+	make
+	make install DESTDIR=$PKG/
+}

@@ -7,9 +7,9 @@
 name=python2-cffi
 version=1.5.2
 release=1
-source=(http://pypi.python.org/packages/source/c/$name/$name-$version.tar.gz)
+source=(http://pypi.python.org/packages/source/c/cffi/cffi-$version.tar.gz)
 
 build() {
-	cd $name-$version
+	cd cffi-$version
 	/usr/bin/python2 setup.py install --root=$PKG --optimize=1
 }
