@@ -1,0 +1,23 @@
+# Description: Lightning fast realtime 3D engine
+# URL:         http://irrlicht.sourceforge.net
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Packager:  Kristian Lehmann, email at zero-io dot net
+# Depends on:  mesa3d xorg-libxxf86vm xorg-libx11 xorg-libxshmfence xorg-libxdmcp
+
+name=irrlicht
+version=1.8.4
+release=2
+source=(http://downloads.sourceforge.net/irrlicht/$name-$version.zip)
+
+build() {
+  cd $name-$version/source/Irrlicht
+
+  make NDEBUG=1 sharedlib
+  make NDEBUG=1
+
+  sed -i "/^INSTALL_DIR/s:=.*:=$PKG/usr/lib:" Makefile
+  make install
+
+  # copy missing static lib
+  install -m644 libIrrlicht.a $PKG/usr/lib/
+}
