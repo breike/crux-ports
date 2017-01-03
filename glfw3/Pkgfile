@@ -1,0 +1,22 @@
+# Description:	Library for creating windows with OpenGL contexts and receiving input and events
+# URL:		http://www.glfw.org/
+# Maintainer:   Jake Slazenger jake dot slazenger at yandex dot com
+# Packager:	Alan Mizrahi, alan at mizrahi dot com dot ve
+# Depends on:	cmake glu
+
+name=glfw3
+version=3.2.1
+release=1
+source=(https://github.com/glfw/glfw/archive/$version/$version.tar.gz)
+
+build() {
+	mkdir build; cd build
+
+	cmake ../glfw-$version \
+		-DCMAKE_BUILD_TYPE=Release \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DBUILD_SHARED_LIBS=On
+
+	make
+	make DESTDIR=$PKG install
+}

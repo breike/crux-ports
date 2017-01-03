@@ -1,0 +1,33 @@
+# Description:  Lightweight PDF and XPS viewer
+# URL:          http://www.mupdf.com/
+# Maintainer:   Jake Slazenger jake dot slazenger at yandex dot com
+# Packager:     Juergen Daubert, jue at crux dot nu
+# Depends on:   curl freetype libjpeg-turbo xorg-libxext glfw3
+# Stealed from: https://git.archlinux.org/svntogit/community.git/tree/trunk/PKGBUILD?h=packages/mupdf
+
+name=mupdf
+version=1.10a
+release=1
+source=(http://mupdf.com/downloads/mupdf-$version-source.tar.gz)
+
+build() {
+    CFLAGS+=' -fPIC'
+    CXXFLAGS+=' -fPIC'
+    export CFLAGS CXXFLAGS
+
+    HAVE_GLFW='yes'
+    SYS_GLFW_CFLAGS="$(pkg-config --cflags glfw3)"
+    SYS_GLFW_LIBS="$(pkg-config --libs glfw3) -lGL"
+    export HAVE_GLFW SYS_GLFW_CFLAGS SYS_GLFW_LIBS
+
+    cd $name-$version-source
+    
+    rm -r thirdparty/{freetype*,jpeg*,zlib,curl}
+    sed '/^JBIG2DEC_CFLAGS :=/s|$| -I./include/mupdf|' -i Makethird
+    
+    make build=release 
+    make prefix=$PKG/usr mandir=$PKG/usr/share/man install
+   
+    ln -s mupdf-x11-curl $PKG/usr/bin/mupdf
+    rm -r $PKG/usr/share/doc
+} 
