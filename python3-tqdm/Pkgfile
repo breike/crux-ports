@@ -1,0 +1,15 @@
+# Description: A Fast, Extensible Progress Meter
+# URL: https://pypi.python.org/pypi/tqdm
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on: python3
+
+name=python3-tqdm
+version=4.8.3
+release=1
+source=(https://pypi.python.org/packages/0b/2f/391ad189d0b7cde199395d70f5cbcfb0fd548f5c245f173dcd9f1628bbb7/tqdm-4.8.3.tar.gz)
+
+build()
+{
+	cd tqdm-$version
+	python3 setup.py --root=$PKG
+}

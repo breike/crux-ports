@@ -1,0 +1,18 @@
+# Description: Implements a XML/HTML/XHTML Markup safe string for Python
+# URL: https://pypi.python.org/pypi/MarkupSafe
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:
+
+name=python3-markupsafe
+version=0.23
+release=1
+source=(https://pypi.python.org/packages/c0/41/bae1254e0396c0cc8cf1751cb7d9afc90a602353695af5952530482c963f/MarkupSafe-$version.tar.gz)
+
+build()
+{
+	cd MarkupSafe-$version
+
+	/usr/bin/python3 setup.py build
+
+	/usr/bin/python3 setup.py install --prefix=/usr --root=$PKG --optimize=1
+}

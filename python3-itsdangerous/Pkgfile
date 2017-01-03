@@ -1,0 +1,18 @@
+# Description: Various helpers to pass trusted data to untrusted environments
+# URL: https://pythonhosted.org/itsdangerous/
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on: python3
+
+name=python3-itsdangerous
+version=0.24
+release=1
+source=(https://github.com/pallets/itsdangerous/archive/$version.tar.gz)
+
+build() 
+{
+	cd itsdangerous-$version
+
+	/usr/bin/python3 setup.py build
+
+	/usr/bin/python3 setup.py install --prefix=/usr --root=$PKG --optimize=1
+}

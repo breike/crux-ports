@@ -1,0 +1,18 @@
+# Description: An HTTP and WSGI utility library for Python.
+# URL: http://werkzeug.pocoo.org/
+# Maintainer: Jake Slazenger jake dot slazneger at yandex dot com
+# Depends on: python3 python3-setuptools python3-requests
+
+name=python3-werkzeug
+version=0.11.15
+release=1
+source=(https://pypi.python.org/packages/fe/7f/6d70f765ce5484e07576313897793cb49333dd34e462488ee818d17244af/Werkzeug-$version.tar.gz)
+
+build() 
+{
+	cd Werkzeug-$version
+
+	/usr/bin/python3 setup.py build
+
+	/usr/bin/python3 setup.py install --prefix=/usr --root=$PKG --optimize=1
+}
