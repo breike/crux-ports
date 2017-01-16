@@ -5,9 +5,9 @@
 # Depends on: python2 python2-six python2-cffi python2-enum34 python2-pyasn1
 
 name=python2-cryptography
-version=1.2.3
+version=1.7.1
 release=1
-source=(http://pypi.python.org/packages/source/c/cryptography/cryptography-$version.tar.gz)
+source=(https://github.com/pyca/cryptography/archive/$version.tar.gz)
 
 build() {
 	cd cryptography-$version

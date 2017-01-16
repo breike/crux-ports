@@ -1,0 +1,16 @@
+# Description: Virtual Python Environment builder
+# URL:         http://www.virtualenv.org/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Packager:    Thomas Penteker, tek at serverop dot de
+# Depends on:  python3-setuptools
+
+name=python3-virtualenv
+version=15.0.1
+release=1
+source=(https://pypi.io/packages/source/v/virtualenv/virtualenv-${version}.tar.gz)
+
+build() {
+    cd virtualenv-$version
+    /usr/bin/python3 setup.py install --root=$PKG
+    mv $PKG/usr/bin/virtualenv $PKG/usr/bin/python3-virtualenv
+}
