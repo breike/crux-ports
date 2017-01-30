@@ -1,9 +1,10 @@
 # Description: Lua GObject Introspection
 # URL: https://github.com/pavouk/lgi/
-# Maintainer:  Cory Burgett, cmburget at gmail dot com
-# Depends on: gobject-introspection, lua51
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Packager:   Cory Burgett, cmburget at gmail dot com
+# Depends on: gobject-introspection, luajit
 
-name=luajit-lua-lgi
+name=luajit-lgi
 version=0.9.0
 release=1
 source=(https://github.com/pavouk/lgi/archive/$version.tar.gz)
