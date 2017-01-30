@@ -1,0 +1,29 @@
+# Description: Text based document generation.
+# URL: http://www.methods.co.nz/asciidoc/
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Packager: Danny Rawlins, crux at romster dot me
+# Depends on: python docbook-xml docbook-xsl
+
+name=asciidoc
+version=8.6.9
+release=1
+source=(http://downloads.sourceforge.net/project/$name/$name/$version/$name-$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	# python2 fix
+	for file in asciidocapi.py a2x.py asciidoc.py filters/music/music2png.py filters/latex/latex2png.py \
+  		filters/code/code-filter.py filters/graphviz/graphviz2png.py; do
+		sed -i 's_#!/usr/bin/env python_#!/usr/bin/env python2_' $file
+	done
+
+	./configure \
+		--prefix=/usr \
+		--mandir=/usr/man \
+		--sysconfdir=/usr/etc
+
+	make
+	make DESTDIR=$PKG install
+	rm $PKG/usr/etc/asciidoc/images/icons/README
+}

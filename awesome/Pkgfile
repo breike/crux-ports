@@ -1,0 +1,45 @@
+# Description: awesome window manager
+# URL: http://awesomewm.org/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Packager:  Cory Burgett, cmburget at gmail dot com
+# Depends on: luajit, git, pango, imagemagick, imlib2, xmlto, cmake, asciidoc, cairo, libev, xorg-xcb-util-keysyms, xorg-xcb-util-wm, xorg-xcb-util-cursor, xorg-xcb-util-xrm, xorg-libxkbcommon, dbus, xmessage, startup-notification, docbook-xsl, docbook-xml, libxdg-basedir, lua-lgi
+
+name=awesome
+version=4.0
+release=1
+source=(https://github.com/awesomeWM/awesome-releases/raw/master/awesome-$version.tar.xz)
+
+build() {
+	local i
+
+	cd $name-$version
+
+	sed 's/^lua /luajit /' -i build-utils/lgi-check.sh
+	sed 's@^\s*COMMAND ${XMLTO_EXECUTABLE} man ${xmlfile}@COMMAND ${XMLTO_EXECUTABLE} --searchpath "/usr/share/xml/docbook/xsl-stylesheets/manpages:/usr/share/xml/docbook/xml-dtd-4.5" man ${xmlfile}@' -i CMakeLists.txt
+
+	mkdir build
+	cd build
+	cmake .. \
+		-DCMAKE_BUILD_TYPE=RELEASE \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DSYSCONFDIR=/etc \
+		-DLUA_INCLUDE_DIR=/usr/include/luajit-2.0 \
+		-DLUA_LIBRARY=/usr/lib/libluajit-5.1.so
+
+	make
+	make DESTDIR=$PKG install
+
+	rm -rf $PKG/usr/share/doc
+	rm $PKG/usr/share/awesome/themes/default/README
+
+	# get rid of non-English manpages
+	for i in $PKG/usr/share/man/*; do
+		local j=${i##*/}
+		if [ ${#j} -lt 3 ]; then
+			rm -rf $i
+		fi
+		if [ $(expr index $j "_") -gt 0 ]; then
+			rm -rf $i
+		fi
+	done
+}

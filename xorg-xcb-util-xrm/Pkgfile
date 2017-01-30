@@ -1,0 +1,19 @@
+# Description: XCB utility functions for the X resource manager
+# URL:         https://github.com/Airblader/xcb-util-xrm
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Packager:    Aaron Ball, nullspoon at oper dot io
+# Depends on: 
+
+name=xorg-xcb-util-xrm
+version=1.2
+release=1
+source=(https://github.com/Airblader/xcb-util-xrm/releases/download/v${version}/xcb-util-xrm-${version}.tar.gz)
+
+build() {
+	cd xcb-util-xrm-$version
+
+	./configure --prefix=/usr
+
+	make
+	make DESTDIR=$PKG install
+}
