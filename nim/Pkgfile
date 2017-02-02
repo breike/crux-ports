@@ -1,0 +1,36 @@
+# Description: A compiled, garbage-collected systems programming language with a design that focuses on efficiency, expressiveness, and elegance
+# URL: https://nim-lang.org/
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on: 
+
+name=nim
+version=0.16.0
+release=1
+source=(https://github.com/nim-lang/Nim/archive/v$version.tar.gz)
+
+build()
+{
+    cd Nim-$version
+    wget -O $PKGMK_SOURCE_DIR/csources-$version.tar.gz -nc https://github.com/nim-lang/csources/archive/v$version.tar.gz || true
+    tar -zxvf $PKGMK_SOURCE_DIR/csources-$version.tar.gz -C .
+    cd csources-$version && ./build.sh
+    cd ..
+    bin/nim c koch
+    ./koch boot -d:release
+
+    cd lib
+    ../bin/nim c --app:lib -d:createNimRtl -d:release nimrtl.nim
+
+    cd ../tools
+    ../bin/nim c -d:release nimgrep.nim
+    
+    cd ..
+
+    mkdir -p $PKG{/usr/lib/nim,/usr/bin,/usr/include/nim,/etc}
+    cp -r lib/* $PKG/usr/lib/nim/
+    cp -r config/* $PKG/etc/
+    mv $PKG/usr/lib/nim/*.h $PKG/usr/include/nim/
+    ln -s /usr/lib/nim/libnimrtl.so $PKG/usr/lib/libnimrtl.so
+    install -m755 tools/nimgrep  $PKG/usr/bin
+    install -m755 bin/nim $PKG/usr/bin/nim
+}

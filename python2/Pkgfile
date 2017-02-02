@@ -5,7 +5,7 @@
 # Depends on:  db gdbm openssl bzip2 zlib sqlite3
 
 name=python2
-version=2.7.12
+version=2.7.13
 release=1
 source=(http://www.python.org/ftp/python/$version/Python-$version.tar.xz \
         pyconfig.h)
@@ -37,6 +37,7 @@ build () {
     rm $PKG/usr/lib/python/{distutils,site-packages,test/data}/README
     rm $PKG/usr/lib/python/idlelib/{ChangeLog,{NEWS,README,TODO}.txt}
     rm $PKG/usr/lib/python/ctypes/macholib/README.ctypes
+    rm $PKG/usr/bin/python
 
     mv $PKG/usr/include/python2.7/pyconfig{,-64}.h
     install -m 0644 $SRC/pyconfig.h $PKG/usr/include/python2.7/
