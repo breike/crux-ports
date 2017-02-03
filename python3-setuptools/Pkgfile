@@ -2,20 +2,20 @@
 # URL: http://pypi.python.org/pypi/setuptools
 # Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: python2 python2-pyparsing python2-packaging python2-appdirs
+# Depends on: python3
 
-name=python2-setuptools
+name=python3-setuptools
 version=26.1.1
 release=1
 source=(https://github.com/pypa/setuptools/archive/v$version.tar.gz)
 
 build() {
 	cd setuptools-$version
-	
-	/usr/bin/python2 bootstrap.py
-	/usr/bin/python2 setup.py build
 
-	/usr/bin/python2 setup.py install \
+	/usr/bin/python3 bootstrap.py
+	/usr/bin/python3 setup.py build
+
+	/usr/bin/python3 setup.py install \
 	                                    --prefix=/usr \
 	                                    --root=$PKG \
 	                                    --optimize=1 \
