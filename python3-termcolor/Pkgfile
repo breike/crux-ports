@@ -1,6 +1,6 @@
 # Description: ANSII Color formatting for output in terminal.
-# URL: https://pypi.python.org/pypi/termcolor
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# URL:         https://pypi.python.org/pypi/termcolor
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
 # Depends on:
 
 name=python3-termcolor

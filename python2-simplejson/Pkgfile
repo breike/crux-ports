@@ -9,7 +9,7 @@ source=(http://pypi.python.org/packages/source/s/simplejson/simplejson-$version.
 
 build() {
 	cd simplejson-$version
+
 	python2 setup.py build
 	python2 setup.py install --root=$PKG
-	find $PKG -name '*egg-info' -exec rm -rf {} +
 }

@@ -1,7 +1,7 @@
 # Description: A Fast, Extensible Progress Meter
-# URL: https://pypi.python.org/pypi/tqdm
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on: python3
+# URL:         https://pypi.python.org/pypi/tqdm
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  python3
 
 name=python3-tqdm
 version=4.8.3

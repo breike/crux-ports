@@ -1,7 +1,6 @@
-# Maintainer: Jake Slazenger, jake dot slazenger at yandex dot com
-# Description: A terminal emulator based off of libvte that aims to be fast and lightweight.
-# http://lilyterm.luna.com.tw/
-# Depends on: vte
+# Maintainer:  Jake Slazenger, jake dot slazenger at yandex dot com
+# Description: Terminus font
+# Depends on:
 
 name=terminus-cyrillic
 version=4.40
@@ -10,6 +9,7 @@ source=("http://downloads.sourceforge.net/project/terminus-font/terminus-font-$v
 
 build () {
 	cd terminus-font-$version
+
 	#patch -i alt/ao2.diff
 	patch -i alt/dv1.diff
 	#patch -i alt/ge2.diff
@@ -18,9 +18,10 @@ build () {
 	#patch -i alt/hi2-dv1.diff
 	#patch -i alt/hi2-ka2.diff
 	patch -i alt/ij1.diff
-    #patch -i alt/ka2.diff
+        #patch -i alt/ka2.diff
 	patch -i alt/ll2.diff
 	patch -i alt/td1.diff
+
 	chmod +x configure
 	./configure --prefix=/usr --x11dir=/usr/share/fonts/X11/cyrillic --psfdir=/usr/share/kbd/consolefonts/
 	make DESTDIR=$PKG install

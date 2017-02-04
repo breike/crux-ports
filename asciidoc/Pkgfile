@@ -1,8 +1,8 @@
 # Description: Text based document generation.
-# URL: http://www.methods.co.nz/asciidoc/
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Packager: Danny Rawlins, crux at romster dot me
-# Depends on: python docbook-xml docbook-xsl
+# URL:         http://www.methods.co.nz/asciidoc/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Packager:    Danny Rawlins, crux at romster dot me
+# Depends on:  python2 docbook-xml docbook-xsl
 
 name=asciidoc
 version=8.6.9

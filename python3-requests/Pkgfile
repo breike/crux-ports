@@ -1,8 +1,8 @@
 # Description: Python HTTP for Humans.
-# URL: http://python-requests.org/
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Packager: Danny Rawlins, crux at romster dot me
-# Depends on: setuptools
+# URL:         http://python-requests.org/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Packager:    Danny Rawlins, crux at romster dot me
+# Depends on:  python3-setuptools
 
 name=python3-requests
 version=2.9.1
@@ -11,6 +11,7 @@ source=(http://pypi.python.org/packages/source/r/requests/requests-${version}.ta
 
 build() {
 	cd requests-$version
+
 	python3 setup.py build
 	python3 setup.py install --prefix=/usr --root=$PKG
 }

@@ -1,6 +1,6 @@
-# Maintainer: Jake Slazenger, jake dot slazenger at yandex dot com
 # Description: A terminal emulator based off of libvte that aims to be fast and lightweight.
-# http://lilyterm.luna.com.tw/
+# Homepage:    http://lilyterm.luna.com.tw/
+# Maintainer: Jake Slazenger, jake dot slazenger at yandex dot com
 # Depends on: vte
 
 name=lilyterm
@@ -10,6 +10,7 @@ source=(http://lilyterm.luna.com.tw/file/$name-$version.tar.gz)
 
 build() {
 	cd $name-$version
+
 	./configure --prefix=/usr --sysconfdir=/usr/etc/xdg
 	make
 	make DESTDIR=$PKG install

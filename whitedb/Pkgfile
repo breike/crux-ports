@@ -1,7 +1,7 @@
 # Description: Lightweight NoSQL database library written in C.
-# URL: http://whitedb.org/
-# Maintainer: Jake Slazneger jake dot slazenger at yandex dot com
-# Depends on: python2
+# URL:         http://whitedb.org/
+# Maintainer:  Jake Slazneger jake dot slazenger at yandex dot com
+# Depends on:  python2
 
 name=whitedb
 version=0.7.3
@@ -11,6 +11,7 @@ source=(http://whitedb.org/whitedb-$version.tar.gz)
 build()
 {
 	cd whitedb-$version
+
 	./configure --prefix=/usr \
 	            --with-python
 	make

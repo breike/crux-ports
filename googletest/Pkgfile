@@ -1,6 +1,6 @@
 # Description: Google C++ Testing Framework.
-# URL: https://github.com/google/googletest
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# URL:         https://github.com/google/googletest
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
 # Depends on:
 
 name=googletest

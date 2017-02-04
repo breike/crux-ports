@@ -1,7 +1,7 @@
 # Description: Command Line Interface Creation Kit
-# URL: http://click.pocoo.org/
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on: python2
+# URL:         http://click.pocoo.org/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  python2
 
 name=python2-click
 version=6.6
@@ -13,6 +13,5 @@ build()
 	cd click-$version
 
 	/usr/bin/python2 setup.py build
-
 	/usr/bin/python2 setup.py install --prefix=/usr --root=$PKG --optimize=1
 }

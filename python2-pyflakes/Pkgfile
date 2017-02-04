@@ -1,7 +1,7 @@
-# Description:
-# URL: https://github.com/PyCQA/pyflakes
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on: python2 python2-setuptools
+# Description: Passive checker of Python programs.
+# URL:         https://github.com/PyCQA/pyflakes
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  python2 python2-setuptools
 
 name=python2-pyflakes
 version=1.3.0
@@ -13,10 +13,10 @@ build()
 	cd pyflakes-$version
 
 	/usr/bin/python2 setup.py build
-
 	/usr/bin/python2 setup.py install \
 	    --prefix=/usr \
 	    --root=$PKG \
 	    --optimize=1
+
 	mv $PKG/usr/bin/pyflakes $PKG/usr/bin/python2-pyflakes
 }

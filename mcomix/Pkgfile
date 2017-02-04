@@ -1,8 +1,8 @@
 # Description: A user-friendly, customizable image viewer specifically designed to handle comic books.
-# URL: http://sourceforge.net/projects/mcomix/
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Packager: Danny Rawlins, crux at romster dot me
-# Depends on: pygtk python2-PIL xdg-utils desktop-file-utils hicolor-icon-theme unrar
+# URL:         http://sourceforge.net/projects/mcomix/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Packager:    Danny Rawlins, crux at romster dot me
+# Depends on:  pygtk python2-PIL xdg-utils desktop-file-utils hicolor-icon-theme unrar
 
 name=mcomix
 version=1.2.1
@@ -12,6 +12,7 @@ source=(http://downloads.sourceforge.net/project/$name/MComix-$version/$name-$ve
 build() {
 	cd $name-$version
 
+	/usr/bin/python2 setup.py build
 	/usr/bin/python2 setup.py install --prefix=/usr --optimize=1 --root=$PKG
 
 	mv /$PKG/usr/share/man $PKG/usr/man

@@ -1,7 +1,7 @@
 # Description: Command Line Interface Creation Kit
-# URL: http://click.pocoo.org/
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on: python3
+# URL:         http://click.pocoo.org/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  python3
 
 name=python3-click
 version=6.6

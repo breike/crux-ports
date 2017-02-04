@@ -1,7 +1,7 @@
 # Description: Simple Python style checker in one Python file
-# URL: https://github.com/pycqa/pycodestyle
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on: python2 python2-setuptools
+# URL:         https://github.com/pycqa/pycodestyle
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  python2 python2-setuptools
 
 name=python2-pycodestyle
 version=2.2.0
@@ -13,6 +13,7 @@ build()
 	cd pycodestyle-$version
 
 	/usr/bin/python2 setup.py build
-
 	/usr/bin/python2 setup.py install --prefix=/usr --root=$PKG --optimize=1
+
+        mv $PKG/usr/bin/pycodestyle $PKG/usr/bin/python2-pycodestyle
 }

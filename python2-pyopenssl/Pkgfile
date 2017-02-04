@@ -1,16 +1,17 @@
 # Description: Python interface to the OpenSSL library.
-# URL: http://pypi.python.org/pypi/pyOpenSSL
-# Maintainer: Jake Slazenber jake dot slazenger at yandex dot com
-# Packager: Danny Rawlins, crux at romster dot me
-# Depends on: python2-cryptography python2
+# URL:         http://pypi.python.org/pypi/pyOpenSSL
+# Maintainer:  Jake Slazenber jake dot slazenger at yandex dot com
+# Packager:    Danny Rawlins, crux at romster dot me
+# Depends on:  python2-cryptography python2
 
 name=python2-pyopenssl
 version=16.2.0
 release=1
-source=(https://pypi.io/packages/source/p/pyOpenSSL/pyOpenSSL-$version.tar.gz)
+source=(https://github.com/pyca/pyopenssl/archive/$version.tar.gz)
 
 build() {
-	cd pyOpenSSL-$version
+	cd pyopenssl-$version
+
 	/usr/bin/python2 setup.py build
 	/usr/bin/python2 setup.py install --root=$PKG --optimize=1
 }

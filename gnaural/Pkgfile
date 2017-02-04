@@ -1,7 +1,7 @@
 # Description: An opensource binaural-beat generator
-# URL: http://gnaural.sourceforge.net/download/
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on: gtk libglade glib libsndfile portaudio
+# URL:         http://gnaural.sourceforge.net/download/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  gtk libglade glib libsndfile portaudio
 # Bugfixes stealed from: https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=gnaural
 
 name=gnaural

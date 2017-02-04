@@ -1,7 +1,7 @@
 # Description:	KDE Multimedia API
 # URL:		http://www.kde.org
 # Maintainer:	Jake Slazenger jake dot slazenger at yandex dot com
-# Packager: Alan Mizrahi, alan at mizrahi dot com dot ve
+# Packager:     Alan Mizrahi, alan at mizrahi dot com dot ve
 # Depends on:	cmake qt4 glib libxml2 xine-lib xorg-libxcb automoc4
 # Optional:	libqzeitgeist
 

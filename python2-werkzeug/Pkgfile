@@ -1,7 +1,7 @@
 # Description: An HTTP and WSGI utility library for Python.
-# URL: http://werkzeug.pocoo.org/
-# Maintainer: Jake Slazenger jake dot slazneger at yandex dot com
-# Depends on: python2 python2-setuptools python2-requests
+# URL:         http://werkzeug.pocoo.org/
+# Maintainer:  Jake Slazenger jake dot slazneger at yandex dot com
+# Depends on:  python2 python2-setuptools python2-requests
 
 name=python2-werkzeug
 version=0.11.15
@@ -13,6 +13,5 @@ build()
 	cd werkzeug-$version
 
 	/usr/bin/python2 setup.py build
-
 	/usr/bin/python2 setup.py install --prefix=/usr --root=$PKG --optimize=1
 }

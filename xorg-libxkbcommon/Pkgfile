@@ -13,7 +13,6 @@ build() {
 	cd libxkbcommon-${version}
 
 	./configure --prefix=/usr --mandir=/usr/man        
-
 	make
 	make DESTDIR=$PKG install
 }

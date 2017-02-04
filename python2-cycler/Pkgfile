@@ -1,15 +1,17 @@
 # Description: Composable style cycles.
-# URL: http://matplotlib.org/cycler
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on:
+# URL:         http://matplotlib.org/cycler
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  python2
 
 name=python2-cycler
 version=0.10.0
 release=1
-source=(https://pypi.python.org/packages/c2/4b/137dea450d6e1e3d474e1d873cd1d4f7d3beed7e0dc973b06e8e10d32488/cycler-0.10.0.tar.gz)
+source=(https://github.com/matplotlib/cycler/archive/v$version.tar.gz)
 
 build()
 {
 	cd cycler-$version
-	python2 setup.py install --root=$PKG --prefix=/usr
+
+	/usr/bin/python2 setup.py build
+	/usr/bin/python2 setup.py install --root=$PKG --prefix=/usr
 }

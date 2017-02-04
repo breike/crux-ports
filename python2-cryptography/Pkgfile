@@ -1,8 +1,8 @@
 # Description: A package designed to expose cryptographic recipes and primitives to Python developers.
-# URL: http://pypi.python.org/pypi/cryptography
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Packager: Danny Rawlins, crux at romster dot me
-# Depends on: python2 python2-six python2-cffi python2-enum34 python2-pyasn1
+# URL:         http://pypi.python.org/pypi/cryptography
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Packager:    Danny Rawlins, crux at romster dot me
+# Depends on:  python2 python2-six python2-cffi python2-enum34 python2-pyasn1
 
 name=python2-cryptography
 version=1.7.1
@@ -11,6 +11,7 @@ source=(https://github.com/pyca/cryptography/archive/$version.tar.gz)
 
 build() {
 	cd cryptography-$version
+
 	/usr/bin/python2 setup.py build
 	/usr/bin/python2 setup.py install --root=$PKG --optimize=1
 }

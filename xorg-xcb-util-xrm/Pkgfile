@@ -13,7 +13,6 @@ build() {
 	cd xcb-util-xrm-$version
 
 	./configure --prefix=/usr
-
 	make
 	make DESTDIR=$PKG install
 }

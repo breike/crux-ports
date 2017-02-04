@@ -1,8 +1,8 @@
-# Description: Tools for monitoring system health (temperatures, voltages, fan speed, etc)
-# URL: http://www.lm-sensors.org
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Packager: Jose V Beneyto, sepen at crux dot nu
-# Depends on: perl
+# Description:  Tools for monitoring system health (temperatures, voltages, fan speed, etc)
+# URL:          http://www.lm-sensors.org
+# Maintainer:   Jake Slazenger jake dot slazenger at yandex dot com
+# Packager:     Jose V Beneyto, sepen at crux dot nu
+# Depends on:   perl
 # Nice to have: i2c-tools
 
 name=lm_sensors

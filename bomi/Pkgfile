@@ -1,7 +1,7 @@
 # Description: Powerful and easy-to-use GUI multimedia player.	
-# URL:	https://bomi-player.github.io/
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on: ffmpeg, mesa, python, gcc, qt5, libchardet, libass, glew, libbluray, libdvdnav, libdvdread, mpg123,libva
+# URL:         https://bomi-player.github.io/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  ffmpeg, mesa, python, gcc, qt5, libchardet, libass, glew, libbluray, libdvdnav, libdvdread, mpg123,libva
 # Optional: libcdio, libcdio-paranoia, jack, pulseaudio, samba, systemd
 
 name=bomi

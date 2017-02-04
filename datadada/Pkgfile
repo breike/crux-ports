@@ -1,7 +1,7 @@
 # Description: turn the stored data on your hard drive into a movie
-# URL: http://aug.ment.org/datadada/
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on: portaudio automake
+# URL:         http://aug.ment.org/datadada/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  portaudio automake
 
 name=datadada
 version=aldkjallkdjsfa
@@ -11,6 +11,7 @@ source=(http://aug.ment.org/datadada/DataDada/DataDada-$version.tar.gz)
 build()
 {
 	cd DataDada-$version
+
 	ln -s  /usr/share/automake-$(prt-get current automake | cut -f1 -d"-")/config.sub config.sub
 	ln -s  /usr/share/automake-$(prt-get current automake | cut -f1 -d"-")/config.guess config.guess
 	./configure --prefix=/usr

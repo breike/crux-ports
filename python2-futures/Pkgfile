@@ -1,8 +1,8 @@
 # Description: Backport of the concurrent.futures package from Python 3.2.
-# URL: http://code.google.com/p/pythonfutures/
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Packager: Danny Rawlins, crux at romster dot me
-# Depends on: python2 python2-setuptools
+# URL:         http://code.google.com/p/pythonfutures/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Packager:    Danny Rawlins, crux at romster dot me
+# Depends on:  python2 python2-setuptools
 
 name=python2-futures
 version=3.0.3
@@ -11,6 +11,7 @@ source=(http://pypi.python.org/packages/source/f/futures/futures-$version.tar.gz
 
 build() {
 	cd futures-$version
+
 	/usr/bin/python2 setup.py build
 	/usr/bin/python2 setup.py install --root=$PKG --optimize=1
 }

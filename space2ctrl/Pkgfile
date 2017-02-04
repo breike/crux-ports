@@ -1,7 +1,7 @@
 # Description: Turns the spacebar key to another control key. 
-# URL: https://github.com/r0adrunner/Space2Ctrl
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on: xorg-libx11 xorg-libxtst
+# URL:         https://github.com/r0adrunner/Space2Ctrl
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  xorg-libx11 xorg-libxtst
 
 name=space2ctrl
 version=git

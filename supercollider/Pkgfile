@@ -1,8 +1,8 @@
 # Description: A programming language for real time audio synthesis and algorithmic composition.
-# URL: https://supercollider.github.io
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on: gcc libsndfile cmake fftw xorg-libxt
-# Optional: qt5 alsa-lib 
+# URL:         https://supercollider.github.io
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  gcc libsndfile cmake fftw xorg-libxt
+# Optional:    qt5 alsa-lib 
 
 name=supercollider
 version=3.7.2
@@ -18,6 +18,7 @@ build()
 	cd SuperCollider-Source
 	mkdir build
 	cd build
+
 	cmake -LH -DSC_QT=OFF -DSC_IDE=ON -DSC_EL=ON -DCMAKE_INSTALL_PREFIX=/usr .. 
 	make
 	make DESTDIR=$PKG/ install

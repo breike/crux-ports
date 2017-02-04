@@ -1,7 +1,7 @@
 # Description: dedicated Python module for digital signal processing
-# URL: http://ajaxsoundstudio.com/software/pyo/
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on: portaudio linsndfile liblo python2-wxpython python2
+# URL:         http://ajaxsoundstudio.com/software/pyo/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  portaudio linsndfile liblo python2-wxpython python2
 
 name=python2-pyo
 version=0.8.0
@@ -11,5 +11,6 @@ source=(http://ajaxsoundstudio.com/downloads/pyo_${version}-src.tar.bz2)
 build()
 {
 	cd pyo_$version-src
+
 	python2 setup.py install  --root=$PKG --prefix=/usr
 }

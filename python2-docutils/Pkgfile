@@ -10,8 +10,8 @@ release=1
 source=(http://download.sourceforge.net/docutils/docutils-$version.tar.gz)
 
 build() {
-   cd docutils-$version
-   /usr/bin/python2 setup.py install --root=$PKG
-   rm $PKG/usr/lib/python2.7/site-packages/docutils/writers/s5_html/themes/README.txt
-   rm $PKG/usr/lib/python2.7/site-packages/docutils/parsers/rst/include/README.txt
+	cd docutils-$version
+
+	/usr/bin/python2 setup.py build
+	/usr/bin/python2 setup.py install --root=$PKG
 }

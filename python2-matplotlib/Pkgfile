@@ -1,16 +1,17 @@
 # Description: Python plotting package
-# URL: http://matplotlib.org/
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on: python2-numpy python2 python2-dateutil python2-pyparsing python2-pytz python2-cycler freetype libpng
+# URL:         http://matplotlib.org/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  python2-numpy python2 python2-dateutil python2-pyparsing python2-pytz python2-cycler freetype libpng
 
 name=python2-matplotlib
-version=1.5.1
+version=2.0.0
 release=1
-source=(https://pypi.python.org/packages/8f/f4/c0c7e81f64d5f4d36e52e393af687f28882c53dcd924419d684dc9859f40/matplotlib-1.5.1.tar.gz)
+source=(https://github.com/matplotlib/matplotlib/archive/v$version.tar.gz)
 
 build()
 {
 	cd matplotlib-$version
+
+	python2 setup.py build
 	python2 setup.py install --root=$PKG --prefix=/usr
-	
 }

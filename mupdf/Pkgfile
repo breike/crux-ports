@@ -14,7 +14,6 @@ build() {
     CFLAGS+=' -fPIC'
     CXXFLAGS+=' -fPIC'
     export CFLAGS CXXFLAGS
-
     HAVE_GLFW='yes'
     SYS_GLFW_CFLAGS="$(pkg-config --cflags glfw3)"
     SYS_GLFW_LIBS="$(pkg-config --libs glfw3) -lGL"

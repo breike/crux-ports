@@ -10,7 +10,10 @@ release=1
 source=(https://pypi.io/packages/source/v/virtualenv/virtualenv-${version}.tar.gz)
 
 build() {
-    cd virtualenv-$version
-    /usr/bin/python3 setup.py install --root=$PKG
-    mv $PKG/usr/bin/virtualenv $PKG/usr/bin/python3-virtualenv
+	cd virtualenv-$version
+
+	/usr/bin/python3 setup.py build
+	/usr/bin/python3 setup.py install --root=$PKG
+
+	mv $PKG/usr/bin/virtualenv $PKG/usr/bin/python3-virtualenv
 }

@@ -1,8 +1,8 @@
 # Description: Array processing for numbers, strings, records, and objects with Python.
-# URL: http://numpy.org/
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com 
-# Packager: Danny Rawlins, crux at romster dot me
-# Depends on: lapack setuptools
+# URL:         http://numpy.org/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com 
+# Packager:    Danny Rawlins, crux at romster dot me
+# Depends on:  lapack python3-setuptools
 
 name=python3-numpy
 version=1.11.3

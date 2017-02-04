@@ -1,6 +1,6 @@
 # Description:	PulseAudio is a cross-platform, networked sound server
 # URL:		http://pulseaudio.org/
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Maintainer:   Jake Slazenger jake dot slazenger at yandex dot com
 # Packager:	Alan Mizrahi, alan at mizrahi dot com dot ve
 # Depends on:	libsndfile speex json-c orc tdb dbus intltool
 # Optional:	libsamplerate bluez sbc lirc pyqt4

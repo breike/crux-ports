@@ -1,8 +1,8 @@
 # Description: Easily download, build, install, upgrade, and uninstall Python packages.
-# URL: http://pypi.python.org/pypi/setuptools
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Packager: Danny Rawlins, crux at romster dot me
-# Depends on: python3
+# URL:         http://pypi.python.org/pypi/setuptools
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Packager:    Danny Rawlins, crux at romster dot me
+# Depends on:  python3
 
 name=python3-setuptools
 version=26.1.1

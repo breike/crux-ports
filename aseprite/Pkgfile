@@ -1,7 +1,7 @@
 # Description: Animated sprite editor & pixel art tool. 
-# URL: http://www.aseprite.org/
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on: googletest
+# URL:         http://www.aseprite.org/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  googletest
 
 name=aseprite
 version=e20fdc0

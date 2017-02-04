@@ -1,8 +1,8 @@
 # Description: Python bindings for GObject
-# URL: http://www.pygtk.org
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Packager: Jose V Beneyto, sepen at crux dot nu
-# Depends on: gtk python2
+# URL:         http://www.pygtk.org
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Packager:    Jose V Beneyto, sepen at crux dot nu
+# Depends on:  gtk python2
 
 name=python2-pygobject
 version=2.28.6

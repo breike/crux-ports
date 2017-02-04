@@ -4,12 +4,14 @@
 # Depends on:
 
 name=python2-pytz
-version=2016.4
+version=2016.10
 release=1
-source=(https://pypi.python.org/packages/ad/30/5ab2298c902ac92fdf649cc07d1b7d491a241c5cac8be84dd84464db7d8b/pytz-2016.4.tar.gz)
+source=(https://github.com/stub42/pytz/archive/release_$version.tar.gz)
 
 build()
 {
 	cd pytz-$version
-	python2 setup.py install --root=$PKG --prefix=/usr
+
+	/usr/bin/python2 setup.py build
+	/usr/bin/python2 setup.py install --root=$PKG --prefix=/usr
 }

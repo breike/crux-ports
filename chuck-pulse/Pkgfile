@@ -1,7 +1,7 @@
 # Description: Strongly-timed, Concurrent, and On-the-fly Music Programming Language
-# URL: http://chuck.cs.princeton.edu/
-# Maintainer: Jake Slazenger jake dot slazenger at yamdex dot com
-# Depends on: libsndfile alsa-lib pulseaudio gcc make
+# URL:         http://chuck.cs.princeton.edu/
+# Maintainer:  Jake Slazenger jake dot slazenger at yamdex dot com
+# Depends on:  libsndfile alsa-lib pulseaudio gcc make
 
 name=chuck-pulse
 version=1.3.5.2

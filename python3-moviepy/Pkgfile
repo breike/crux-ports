@@ -1,7 +1,7 @@
 # Description: Video editing with Python.
-# URL: https://pypi.python.org/pypi/moviepy
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on: python3 imagemagick python3-decorator pyhton3-tqdm python3-numpy python3-imageio
+# URL:         https://pypi.python.org/pypi/moviepy
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  python3 imagemagick python3-decorator pyhton3-tqdm python3-numpy python3-imageio
 
 name=python3-moviepy
 version=0.2.2.11

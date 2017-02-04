@@ -13,6 +13,7 @@ source=(http://downloads.sourceforge.net/opencvlibrary/$name-$version.zip)
 build() {
 	mkdir build
 	cd build
+
 	cmake ../$name-$version \
 		-DCMAKE_BUILD_TYPE=RELEASE \
 		-DCMAKE_INSTALL_PREFIX=/usr \

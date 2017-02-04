@@ -1,7 +1,7 @@
 # Description: Cross-platform 2D and 3D game engine
-# URL: https://urho3d.github.io/
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on: cmake mesa3d xorg-libx11 xorg-libxrandr
+# URL:         https://urho3d.github.io/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  cmake mesa3d xorg-libx11 xorg-libxrandr
 
 name=urho3d
 version=1.6
@@ -12,8 +12,8 @@ build()
 {
 	cd Urho3D-$version
 	mkdir -p build && cd build
-	cmake -DCMAKE_INSTALL_PREFIX=/usr ..
 
+	cmake -DCMAKE_INSTALL_PREFIX=/usr ..
 	make
 	make DESTDIR=$PKG prefix=/usr install
 }

@@ -1,7 +1,7 @@
 # Description: Integer to Roman numerals converter
-# URL: https://pypi.python.org/pypi/roman
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on: python2 python2-setuptools
+# URL:         https://pypi.python.org/pypi/roman
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  python2 python2-setuptools
 
 name=python2-roman
 version=2.0.0
@@ -11,5 +11,7 @@ source=(https://pypi.python.org/packages/92/a1/34ee5c17431a1c9df71647511faa0fa1b
 build()
 {
 	cd roman-$version
-	python2 setup.py install --root=$PKG
+
+	/usr/bin/python2 setup.py build
+	/usr/bin/python2 setup.py install --root=$PKG
 }

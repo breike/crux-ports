@@ -1,7 +1,7 @@
 # Description: Generate binaural, pulse, and phase beats for brain wave entrainment.
-# URL: https://sourceforge.net/projects/discord/
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on: flac libsndfile libsamplerate
+# URL:         https://sourceforge.net/projects/discord/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  flac libsndfile libsamplerate
 
 name=discord
 version=3.2.1

@@ -1,7 +1,7 @@
 # Description: The Synthesis ToolKit in C++.
-# URL: https://ccrma.stanford.edu/software/stk/
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on: tk alsa-lib
+# URL:         https://ccrma.stanford.edu/software/stk/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  tk alsa-lib
 
 name=stk
 version=4.5.1
@@ -11,6 +11,7 @@ source=(http://ccrma.stanford.edu/software/stk/release/stk-${version}.tar.gz)
 build()
 {
 	cd stk-$version
+
  	./configure --with-alsa \
 	            --prefix=/usr
 	make

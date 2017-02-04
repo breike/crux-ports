@@ -1,7 +1,7 @@
 # Description: Python parsing module
 # URL:         https://pypi.python.org/pypi/pyparsing
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Packager:  Thomas Penteker, tek at serverop dot de
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Packager:    Thomas Penteker, tek at serverop dot de
 # Depends on:  python2
 
 name=python2-pyparsing
@@ -11,7 +11,9 @@ source=(https://pypi.python.org/packages/source/p/pyparsing/pyparsing-$version.t
 
 build() {
 
-  cd pyparsing-$version
-  python2 setup.py install --prefix=/usr --root=$PKG
+	cd pyparsing-$version
+
+	/usr/bin/python2 setup.py build
+	/usr/bin/python2 setup.py install --prefix=/usr --root=$PKG
 
 }

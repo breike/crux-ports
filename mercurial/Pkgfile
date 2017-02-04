@@ -1,7 +1,7 @@
 # Description: A minimal scalable distributed SCM
 # URL:         http://www.selenic.com/mercurial/
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com 
-# Packager: Vincenzo Colosimo, vico at bicisport dot de
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com 
+# Packager:    Vincenzo Colosimo, vico at bicisport dot de
 # Depends on:  python2, docutils, pyhton2-roman
 
 name=mercurial
@@ -12,10 +12,10 @@ source=(http://www.selenic.com/${name}/release/${name}-${version}.tar.gz)
 build() {
     
 	cd $name-$version
+
 	make PYTHON=/usr/bin/python2 \
 	     PYTHONPATH=/usr/lib/python2.7/site-packages:${PYTHONPATH}
 	all 
-
 	make PREFIX=$PKG/usr \
 	     MANDIR=$PKG/usr/man \
 	     PYTHON=/usr/bin/python2 \

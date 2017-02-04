@@ -1,7 +1,7 @@
-# Description: your hardcore loop machine.
-# URL: http://www.giadamusic.com/
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on: fltk libsndfile libsamplerate jansson rtmidi
+# Description: Your hardcore loop machine.
+# URL:         http://www.giadamusic.com/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  fltk libsndfile libsamplerate jansson rtmidi
 
 name=giada
 version=0.12.2
@@ -11,6 +11,7 @@ source=(https://github.com/monocasual/giada/archive/v${version}.tar.gz)
 build()
 {
 	cd $name-$version	
+
 	autoreconf -i
 	./configure --target=linux CXXFLAGS="$CXXFLAGS -I/usr/include/rtmidi" --prefix=/usr
 	make

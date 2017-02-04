@@ -1,7 +1,7 @@
 # Description: McCabe complexity checker for Python
-# URL: https://github.com/pycqa/mccabe
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on: python2 python2-setuptools
+# URL:         https://github.com/pycqa/mccabe
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  python2 python2-setuptools
 
 name=python2-mccabe
 version=0.5.2
@@ -13,6 +13,5 @@ build()
 	cd mccabe-$version
 
 	/usr/bin/python2 setup.py build
-
 	/usr/bin/python2 setup.py install --prefix=/usr --root=$PKG --optimize=1
 }

@@ -1,8 +1,8 @@
 # Description: Easily download, build, install, upgrade, and uninstall Python packages.
-# URL: http://pypi.python.org/pypi/setuptools
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Packager: Danny Rawlins, crux at romster dot me
-# Depends on: python2 python2-pyparsing python2-packaging python2-appdirs
+# URL:         http://pypi.python.org/pypi/setuptools
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Packager:    Danny Rawlins, crux at romster dot me
+# Depends on:  python2 python2-pyparsing python2-packaging python2-appdirs
 
 name=python2-setuptools
 version=26.1.1
@@ -14,7 +14,6 @@ build() {
 	
 	/usr/bin/python2 bootstrap.py
 	/usr/bin/python2 setup.py build
-
 	/usr/bin/python2 setup.py install \
 	                                    --prefix=/usr \
 	                                    --root=$PKG \

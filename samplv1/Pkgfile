@@ -1,8 +1,8 @@
 # Description: an old-school polyphonic sampler
-# URL: http://samplv1.sourceforge.net/
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on: qt5, libsndfile, lv2, liblo
-# Optional: alsa-lib, jack 
+# URL:         http://samplv1.sourceforge.net/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  qt5, libsndfile, lv2, liblo
+# Optional:    alsa-lib, jack 
 
 name=samplv1
 version=0.7.4
@@ -12,6 +12,7 @@ source=(http://download.sourceforge.net/samplv1/samplv1-$version.tar.gz)
 build()
 {
 	cd $name-$version
+
 	./configure --prefix=/usr
 	make
 	make DESTDIR=$PKG/ install

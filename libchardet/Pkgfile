@@ -1,7 +1,7 @@
 # Description: Mozilla's Universal Charset Detector C/C++ API	
-# URL: http://ftp.oops.org/pub/oops/libchardet	
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com	
-# Depends on: bash
+# URL:         http://ftp.oops.org/pub/oops/libchardet	
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com	
+# Depends on:  bash
 
 name=libchardet
 version=1.0.4

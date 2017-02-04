@@ -1,7 +1,7 @@
 # Description: A fast and simple micro-framework for python web-applications
-# URL: http://bottlepy.org/docs/dev/
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on: python3
+# URL:         http://bottlepy.org/docs/dev/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  python3
 
 name=python3-bottle
 version=0.12.13
@@ -13,6 +13,5 @@ build()
 	cd bottle-$version
 
 	/usr/bin/python3 setup.py build
-
 	/usr/bin/python3 setup.py install --prefix=/usr --root=$PKG --optimize=1
 }

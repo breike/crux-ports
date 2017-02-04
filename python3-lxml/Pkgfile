@@ -1,8 +1,8 @@
 # Description:  A pythonic binding for the libxml2 and libxslt libraries.
-# URL:         http://lxml.de/
-# Packager:    6c37 Team, https://github.com/6c37/crux-ports/issues
-# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on:  python3 libxslt
+# URL:          http://lxml.de/
+# Maintainer:   Jake Slazenger jake dot slazenger at yandex dot com
+# Packager:     6c37 Team, https://github.com/6c37/crux-ports/issues
+# Depends on:   python3 libxslt
 
 name=python3-lxml
 version=3.7.0

@@ -1,8 +1,8 @@
 # Description: A set of python bindings for cairo
-# URL: http://cairographics.org/pycairo
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Packager: Jose V Beneyto, sepen at crux dot nu
-# Depends on: cairo python2
+# URL:         http://cairographics.org/pycairo
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Packager:    Jose V Beneyto, sepen at crux dot nu
+# Depends on:  cairo python2
 
 name=python2-pycairo
 version=1.10.0

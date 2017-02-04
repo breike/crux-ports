@@ -1,8 +1,8 @@
 # Description: Python collection of cryptographic algorithms and protocols.
-# URL: http://www.dlitz.net/software/pycrypto/
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Packager: Danny Rawlins, crux at romster dot me
-# Depends on: libgmp python2
+# URL:         http://www.dlitz.net/software/pycrypto/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Packager:    Danny Rawlins, crux at romster dot me
+# Depends on:  libgmp python2
 
 name=python2-pycrypto
 version=2.6.1
@@ -11,6 +11,7 @@ source=(https://pypi.python.org/packages/source/p/pycrypto/pycrypto-$version.tar
 
 build() {
 	cd pycrypto-$version
+
 	/usr/bin/python2 setup.py build
 	/usr/bin/python2 setup.py install --root=$PKG --optimize=1
 }

@@ -1,8 +1,8 @@
 # Description: Zope3 interface library.
-# URL: http://pypi.python.org/pypi/zope.interface/
-# Maintainer: Jake Slazenger jake dot slazennger at yandex dot com
-# Packager: Danny Rawlins, crux at romster dot me
-# Depends on: python2 python2-setuptools
+# URL:         http://pypi.python.org/pypi/zope.interface/
+# Maintainer:  Jake Slazenger jake dot slazennger at yandex dot com
+# Packager:    Danny Rawlins, crux at romster dot me
+# Depends on:  python2 python2-setuptools
 	
 name=python2-zope.interface
 version=4.0.5
@@ -11,5 +11,7 @@ source=(http://pypi.python.org/packages/source/z/zope.interface/zope.interface-$
 	
 build() {
 	cd zope.interface-$version
+
+	/usr/bin/python2 setup.py build
 	/usr/bin/python2 setup.py install --root=$PKG --prefix=/usr
 }

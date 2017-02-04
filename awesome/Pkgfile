@@ -1,8 +1,8 @@
 # Description: awesome window manager
-# URL: http://awesomewm.org/
+# URL:         http://awesomewm.org/
 # Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
-# Packager:  Cory Burgett, cmburget at gmail dot com
-# Depends on: luajit, git, pango, imagemagick, imlib2, xmlto, cmake, asciidoc, cairo, libev, xorg-xcb-util-keysyms, xorg-xcb-util-wm, xorg-xcb-util-cursor, xorg-xcb-util-xrm, xorg-libxkbcommon, dbus, xmessage, startup-notification, docbook-xsl, docbook-xml, libxdg-basedir, lua-lgi
+# Packager:    Cory Burgett, cmburget at gmail dot com
+# Depends on:  luajit, git, pango, imagemagick, imlib2, xmlto, cmake, asciidoc, cairo, libev, xorg-xcb-util-keysyms, xorg-xcb-util-wm, xorg-xcb-util-cursor, xorg-xcb-util-xrm, xorg-libxkbcommon, dbus, xmessage, startup-notification, docbook-xsl, docbook-xml, libxdg-basedir, luajit-lgi
 
 name=awesome
 version=4.0

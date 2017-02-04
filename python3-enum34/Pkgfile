@@ -1,8 +1,8 @@
 # Description: Python 3.4 Enum backported
-# URL: https://pypi.python.org/pypi/enum34
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Packager: Danny Rawlins, crux at romster dot me
-# Depends on: python3 python3-setuptools
+# URL:         https://pypi.python.org/pypi/enum34
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Packager:    Danny Rawlins, crux at romster dot me
+# Depends on:  python3 python3-setuptools
 
 name=python3-enum34
 version=1.1.2

@@ -1,7 +1,7 @@
 # Description: A set of C++ classes that provide a common API for realtime MIDI input/output across Linux (ALSA & JACK)
-# URL: https://github.com/thestk/rtmidi
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on: alsa-lib
+# URL:         https://github.com/thestk/rtmidi
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  alsa-lib
 
 name=rtmidi
 version=2.1.1
@@ -11,6 +11,7 @@ source=(https://github.com/thestk/rtmidi/archive/$version.tar.gz)
 build()
 {
 	cd $name-$version
+
 	autoreconf -i
 	./configure  --prefix=/usr --with-alsa
 	make 
