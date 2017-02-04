@@ -1,7 +1,7 @@
 # Description: Python interpreter, version 2.7
 # URL:         http://www.python.org
-# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Packager:  Juergen Daubert, jue at crux dot nu
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Packager:    Juergen Daubert, jue at crux dot nu
 # Depends on:  db gdbm openssl bzip2 zlib sqlite3
 
 name=python2
@@ -37,6 +37,7 @@ build () {
     rm $PKG/usr/lib/python/{distutils,site-packages,test/data}/README
     rm $PKG/usr/lib/python/idlelib/{ChangeLog,{NEWS,README,TODO}.txt}
     rm $PKG/usr/lib/python/ctypes/macholib/README.ctypes
+    # remove /usr/bin/python link
     rm $PKG/usr/bin/python
 
     mv $PKG/usr/include/python2.7/pyconfig{,-64}.h

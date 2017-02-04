@@ -1,9 +1,9 @@
 # Description: A micro webdevelopment framework for Python 
 # URL: http://flask.pocoo.org/
 # Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on: python3 python3-jinja2 python3-werkzeug python3-itsdangerous python3-click
+# Depends on: python2 python2-jinja2 python2-werkzeug python2-itsdangerous python2-click
 
-name=python3-flask
+name=python2-flask
 version=0.12
 release=1
 source=(https://github.com/pallets/flask/archive/$version.tar.gz)
@@ -12,9 +12,9 @@ build()
 {
 	cd flask-$version
 
-	/usr/bin/python3 setup.py build
+	/usr/bin/python2 setup.py build
 
-	/usr/bin/python3 setup.py install --prefix=/usr --root=$PKG --optimize=1
-	
-	mv $PKG/usr/bin/flask $PKG/usr/bin/python3-flask
+	/usr/bin/python2 setup.py install --prefix=/usr --root=$PKG --optimize=1
+
+	mv $PKG/usr/bin/flask $PKG/usr/bin/python2-flask
 }
