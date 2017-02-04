@@ -1,0 +1,22 @@
+# Description: a Python WSGI HTTP Server for UNIX.
+# URL: http://gunicorn.org/
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on: python2
+
+name=python2-gunicorn
+version=19.6.0
+release=1
+source=(https://github.com/benoitc/gunicorn/archive/$version.tar.gz)
+
+build() 
+{
+	cd gunicorn-$version
+
+	/usr/bin/python2 setup.py build
+
+	/usr/bin/python2 setup.py install --prefix=/usr --root=$PKG --optimize=1
+	
+	mv $PKG/usr/bin/gunicorn $PKG/usr/bin/python2-gunicorn
+	mv $PKG/usr/bin/gunicorn_paster $PKG/usr/bin/python2-gunicorn_paster
+	mv $PKG/usr/bin/gunicorn_django $PKG/usr/bin/python2-gunicorn_django
+}

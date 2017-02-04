@@ -1,0 +1,18 @@
+# Description: Adds SQLAlchemy support to Flask.
+# URL: http://flask-sqlalchemy.pocoo.org
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on: python2 python2-sqlalchemy
+
+name=python2-flask-sqlalchemy
+version=2.1
+release=1
+source=(https://github.com/mitsuhiko/flask-sqlalchemy/archive/$version.tar.gz)
+
+build() 
+{
+	cd flask-sqlalchemy-$version
+
+	/usr/bin/python2 setup.py build
+
+	/usr/bin/python2 setup.py install --prefix=/usr --root=$PKG --optimize=1
+}

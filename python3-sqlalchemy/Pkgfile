@@ -1,0 +1,18 @@
+# Description: The Python SQL Toolkit and Object Relational Mapper
+# URL: http://www.sqlalchemy.org/
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on: python3
+
+name=python3-sqlalchemy
+version=rel_1_1_5
+release=1
+source=(https://github.com/zzzeek/sqlalchemy/archive/$version.tar.gz)
+
+build() 
+{
+	cd sqlalchemy-$version
+
+	/usr/bin/python3 setup.py build
+
+	/usr/bin/python3 setup.py install --prefix=/usr --root=$PKG --optimize=1
+}

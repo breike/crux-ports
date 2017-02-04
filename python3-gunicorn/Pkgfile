@@ -15,4 +15,8 @@ build()
 	/usr/bin/python3 setup.py build
 
 	/usr/bin/python3 setup.py install --prefix=/usr --root=$PKG --optimize=1
+
+	mv $PKG/usr/bin/gunicorn $PKG/usr/bin/python3-gunicorn
+	mv $PKG/usr/bin/gunicorn_paster $PKG/usr/bin/python3-gunicorn_paster
+	mv $PKG/usr/bin/gunicorn_django $PKG/usr/bin/python3-gunicorn_django
 }
