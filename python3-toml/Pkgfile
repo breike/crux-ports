@@ -1,0 +1,21 @@
+# Description: Python Library for Tom's Obvious, Minimal Language
+# URL: https://github.com/uiri/toml
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on: python3
+
+name=python3-toml
+version=0.9.2
+release=1
+source=(https://github.com/uiri/toml/archive/$version.tar.gz)
+
+build() 
+{
+	cd toml-$version
+
+	/usr/bin/python3 setup.py build
+
+	/usr/bin/python3 setup.py install \
+	    --prefix=/usr \
+	    --root=$PKG \
+	    --optimize=1
+}

@@ -1,0 +1,18 @@
+# Description: Cross-platform library for retrieving system utilisation.
+# URL:         https://pypi.python.org/pypi/psutil#downloads
+# Maintainer:  wildefyr, me at wildefyr dot net
+# Depends on:  setuptools3
+
+name=python3-psutil
+version=4.0.0
+release=1
+source=(https://pypi.python.org/packages/source/p/psutil/psutil-${version}.tar.gz)
+
+build() {
+	cd psutil-$version
+
+	python3 setup.py build
+	python3 setup.py install \
+					 --prefix=/usr \
+					 --root=$PKG
+}

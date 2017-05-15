@@ -1,0 +1,51 @@
+--- A/Makefile	          2016-11-18 13:11:51.809958300 +0000
++++ B/Makefile            2016-11-18 13:13:58.932957780 +0000
+@@ -142,26 +142,44 @@
+ compton: $(OBJS)
+ 	$(CC) $(CFG) $(CPPFLAGS) $(LDFLAGS) $(CFLAGS) -o $@ $(OBJS) $(LIBS)
+ 
+-install: $(BINS)
++man/%.1: man/%.1.asciidoc
++	a2x --format manpage $<
+ 
+-	@install -d "$(DESTDIR)$(BINDIR)" "$(DESTDIR)$(APPDIR)"
++man/%.1.html: man/%.1.asciidoc
++	asciidoc $<
++
++docs: $(MANPAGES) $(MANPAGES_HTML)
++
++install: $(BINS) docs
++	@install -d "$(DESTDIR)$(BINDIR)" "$(DESTDIR)$(MANDIR)" "$(DESTDIR)$(APPDIR)"
+ 	@install -m755 $(BINS) "$(DESTDIR)$(BINDIR)"/
++ifneq "$(MANPAGES)" ""
++	@install -m644 $(MANPAGES) "$(DESTDIR)$(MANDIR)"/
++endif
+ 	@install -d \
+ 		"$(DESTDIR)$(ICODIR)/scalable/apps" \
+ 		"$(DESTDIR)$(ICODIR)/48x48/apps"
+ 	@install -m644 media/compton.svg "$(DESTDIR)$(ICODIR)/scalable/apps"/
+ 	@install -m644 media/icons/48x48/compton.png "$(DESTDIR)$(ICODIR)/48x48/apps"/
+ 	@install -m644 compton.desktop "$(DESTDIR)$(APPDIR)"/
++ifneq "$(DOCDIR)" ""
++	@install -d "$(DESTDIR)$(DOCDIR)"
++	@install -m644 README.md compton.sample.conf "$(DESTDIR)$(DOCDIR)"/
++	@install -m755 dbus-examples/cdbus-driver.sh "$(DESTDIR)$(DOCDIR)"/
++endif
+ 
+ uninstall:
+ 	@rm -f "$(DESTDIR)$(BINDIR)/compton" "$(DESTDIR)$(BINDIR)/compton-trans"
+ 	@rm -f $(addprefix "$(DESTDIR)$(MANDIR)"/, compton.1 compton-trans.1)
+ 	@rm -f "$(DESTDIR)$(APPDIR)/compton.desktop"
++ifneq "$(DOCDIR)" ""
++	@rm -f $(addprefix "$(DESTDIR)$(DOCDIR)"/, README.md compton.sample.conf cdbus-driver.sh)
++endif
+ 
+ clean:
+-	@rm -f $(OBJS) compton .clang_complete
++	@rm -f $(OBJS) compton $(MANPAGES) $(MANPAGES_HTML) .clang_complete
+ 
+ version:
+ 	@echo "$(COMPTON_VERSION)"
+ 
+-.PHONY: uninstall clean version
++.PHONY: uninstall clean docs version

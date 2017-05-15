@@ -1,0 +1,26 @@
+# Description: A compositor for X.
+# URL:         https://github.com/chjj/compton
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Packager:    6c37 Team, https://github.com/6c37/crux-ports/issues
+# Depends on:  libconfig libpcre mesa3d xorg-libxcomposite xorg-libxinerama xorg-libxrandr xorg-libxdamage asciidoc
+
+name=compton
+#_commit=b7f43ee67a1d2d08239a2eb67b7f50fe51a592a8
+_commit=316eac0613bf342ff91cc645a6c3c80e6b9083fb
+version=20161110
+release=1
+source=(https://github.com/chjj/$name/archive/${_commit}.tar.gz
+        makefile.diff)
+
+build() {	
+	cd $name-${_commit}
+	
+	#remove useless documentation
+	patch -R -p1 < ../makefile.diff
+
+
+	make
+	make DESTDIR=$PKG install
+	
+}
+

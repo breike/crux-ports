@@ -1,0 +1,18 @@
+# Description: an extensible i3status wrapper written in python
+# URL: https://github.com/ultrabug/py3status
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on: python3
+
+name=python3-py3status
+version=3.3
+release=1
+source=(https://github.com/ultrabug/py3status/archive/$version.tar.gz)
+
+build() 
+{
+	cd py3status-$version
+
+	/usr/bin/python3 setup.py build
+
+	/usr/bin/python3 setup.py install --prefix=/usr --root=$PKG --optimize=1
+}

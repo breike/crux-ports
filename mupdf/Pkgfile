@@ -6,26 +6,21 @@
 # Stealed from: https://git.archlinux.org/svntogit/community.git/tree/trunk/PKGBUILD?h=packages/mupdf
 
 name=mupdf
-version=1.10a
+version=1.11
 release=1
 source=(http://mupdf.com/downloads/mupdf-$version-source.tar.gz)
 
 build() {
-    CFLAGS+=' -fPIC'
-    CXXFLAGS+=' -fPIC'
     export CFLAGS CXXFLAGS
-    HAVE_GLFW='yes'
-    SYS_GLFW_CFLAGS="$(pkg-config --cflags glfw3)"
-    SYS_GLFW_LIBS="$(pkg-config --libs glfw3) -lGL"
     export HAVE_GLFW SYS_GLFW_CFLAGS SYS_GLFW_LIBS
 
     cd $name-$version-source
     
-    rm -r thirdparty/{freetype*,jpeg*,zlib,curl}
     sed '/^JBIG2DEC_CFLAGS :=/s|$| -I./include/mupdf|' -i Makethird
     
-    make build=release 
-    make prefix=$PKG/usr mandir=$PKG/usr/share/man install
+    make CFLAGS+=' -fPIC  -I include/ -I thirdparty/harfbuzz/src -I thirdparty/openjpeg/src/lib/openjp2 -I thirdparty/libjpeg/ -I thirdparty/mujs/ -I scripts/freetype/ -I generated/ -I thirdparty/freetype/include/ -I thirdparty/jbig2dec/  -L build/release/thirdparty/ -L build/release/thirdparty/freetype/ -lmupdf  -ljpeg -lfreetype -lz -ljbig2dec -lcrypto -ldl -lmujs -lopenjpeg' \
+         CXXFLAGS+=' -fPIC -I/usr/include/freetype2 -I include/ -I/usr/include/harfbuzz -L build/release/thirdparty/freetype/ -lmupdf  -ljpeg -lfreetype -lz -ljbig2dec -lcrypto -ldl -lmujs -lopenjpeg' build=release \
+         prefix=$PKG/usr  install
    
     ln -s mupdf-x11-curl $PKG/usr/bin/mupdf
     rm -r $PKG/usr/share/doc

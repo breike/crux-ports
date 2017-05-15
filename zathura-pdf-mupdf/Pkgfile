@@ -1,0 +1,19 @@
+# Description: PDF support for zathura using mupdf rendering library
+# URL: https://pwmt.org/projects/zathura-pdf-mupdf
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Packager: John Vogel, jvogel4 at stny dot rr dot com
+# Depends on: girara jbig2dec mupdf mujs openjpeg2 zathura
+
+name=zathura-pdf-mupdf
+version=0.3.1
+release=1
+source=(https://pwmt.org/projects/$name/download/$name-$version.tar.gz
+	zathura-pdf-mupdf-1.9.patch)
+
+build() {
+	cd $name-$version
+#	patch -d . -Np1 < ../zathura-pdf-mupdf-1.9.patch
+
+	make CFLAGS="-fPIC -lmupdf -lmupdfthird -lbig2dec $(pkg-config --cflags glib-2.0)  -I/usr/include/mupdf -I/usr/include -I/usr/include/cairo -I/usr/include/glib-2.0 $CFLAGS" 
+	make DESTDIR=$PKG install
+}

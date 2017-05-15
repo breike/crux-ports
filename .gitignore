@@ -3,4 +3,5 @@
 */.footprint
 */.md5sum
 */*.zip*
+*/*.signature
 */*~
