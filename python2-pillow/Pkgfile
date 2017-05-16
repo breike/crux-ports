@@ -1,0 +1,16 @@
+# Description: Python Imaging Library (PIL) fork.
+# URL: http://python-pillow.github.io/
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Packager: Danny Rawlins, crux at romster dot me
+# Depends on: python3-setuptools lcms2 libwebp zlib libtiff freetype openjpeg
+
+name=python2-pillow
+version=3.3.1
+release=1
+source=(https://pypi.python.org/packages/64/d8/374b717aba5b81ecec65ccbf29b0bd7b7a1f235b67fb7dac6c63ddfe6705/Pillow-3.3.1.zip)
+
+build() {
+	cd Pillow-$version
+	python2 setup.py install --root=$PKG --prefix=/usr
+	rm -r $PKG/usr/lib/python2.7/site-packages/*.egg-info
+}

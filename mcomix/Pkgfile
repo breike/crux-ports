@@ -2,7 +2,7 @@
 # URL:         http://sourceforge.net/projects/mcomix/
 # Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
 # Packager:    Danny Rawlins, crux at romster dot me
-# Depends on:  pygtk python2-PIL xdg-utils desktop-file-utils hicolor-icon-theme unrar
+# Depends on:  pygtk python2-pillow xdg-utils desktop-file-utils hicolor-icon-theme unrar
 
 name=mcomix
 version=1.2.1
