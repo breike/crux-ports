@@ -1,0 +1,18 @@
+# Description: modular and lightweight text editor.
+# URL:         http://beaver-editor.sourceforge.net/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  gtk
+
+name=beaver
+version=0.4.1
+release=1
+source=(https://sourceforge.net/projects/beaver-editor/files/0.4/beaver-$version.tar.bz2)
+
+build()
+{
+	cd beaver-$version
+
+	./configure --prefix=/usr
+        make 
+	make DESTDIR=$PKG install
+}

@@ -1,0 +1,17 @@
+# Description: Binary space partitioning window manager.
+# URL:         https://github.com/baskerville/bspwm
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com 
+# Packager:    6c37 Team, https://github.com/6c37/crux-ports-git/issues
+# Depends on:  xorg-libxcb xorg-xcb-util xorg-xcb-util-wm sxhkd
+
+name=bspwm
+version=0.9.2
+release=2
+source=(https://github.com/baskerville/bspwm/archive/$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	make
+	make PREFIX=/usr DESTDIR=$PKG install
+}
