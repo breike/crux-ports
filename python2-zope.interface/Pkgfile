@@ -5,9 +5,9 @@
 # Depends on:  python2 python2-setuptools
 	
 name=python2-zope.interface
-version=4.0.5
+version=4.4.2
 release=1
-source=(http://pypi.python.org/packages/source/z/zope.interface/zope.interface-$version.zip)
+source=(https://github.com/zopefoundation/zope.interface/archive/$version.tar.gz)
 	
 build() {
 	cd zope.interface-$version

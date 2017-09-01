@@ -5,9 +5,9 @@
 # Depends on:  python2-setuptools
 
 name=python3-cssselect
-version=0.9.1
+version=1.0.1
 release=1
-source=(https://pypi.python.org/packages/source/c/cssselect/cssselect-$version.tar.gz)
+source=(https://github.com/scrapy/cssselect/archive/v$version.tar.gz)
 
 build() {
 	cd cssselect-$version

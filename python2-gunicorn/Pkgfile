@@ -4,7 +4,7 @@
 # Depends on:  python2
 
 name=python2-gunicorn
-version=19.6.0
+version=19.7.1
 release=1
 source=(https://github.com/benoitc/gunicorn/archive/$version.tar.gz)
 
@@ -17,5 +17,5 @@ build()
 	
 	mv $PKG/usr/bin/gunicorn $PKG/usr/bin/python2-gunicorn
 	mv $PKG/usr/bin/gunicorn_paster $PKG/usr/bin/python2-gunicorn_paster
-	mv $PKG/usr/bin/gunicorn_django $PKG/usr/bin/python2-gunicorn_django
+#	mv $PKG/usr/bin/gunicorn_django $PKG/usr/bin/python2-gunicorn_django
 }

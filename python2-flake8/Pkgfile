@@ -4,7 +4,7 @@
 # Depends on:  python2 python2-setuptools python2-configparser
 
 name=python2-flake8
-version=3.2.1
+version=3.4.1
 release=1
 source=(https://github.com/PyCQA/flake8/archive/$version.tar.gz)
 

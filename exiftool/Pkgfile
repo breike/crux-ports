@@ -1,0 +1,17 @@
+# Description: Perl library plus a command-line application for reading, writing and editing meta information in a wide vazriety of files.
+# Homepage:    https://www.sno.phy.queensu.ca/~phil/exiftool/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  perl
+
+name=exiftool
+version=10.61
+release=1
+source=(https://www.sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-$version.tar.gz)
+
+build() {
+    cd Image-ExifTool-$version
+
+    perl Makefile.PL
+    make test
+    make DESTDIR=$PKG/ install
+}

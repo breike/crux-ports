@@ -4,7 +4,7 @@
 # Depends on:  python3
 
 name=python3-gunicorn
-version=19.6.0
+version=19.7.1
 release=1
 source=(https://github.com/benoitc/gunicorn/archive/$version.tar.gz)
 

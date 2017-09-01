@@ -5,12 +5,12 @@
 # Depends on:  python2 python2-setuptools
 
 name=python2-dateutil
-version=2.2
+version=2.6.1
 release=1
-source=(https://pypi.python.org/packages/source/p/python-dateutil/python-dateutil-${version}.tar.gz)
+source=(https://github.com/dateutil/dateutil/archive/$version.tar.gz)
 
 build() {
-	cd python-dateutil-$version
+	cd dateutil-$version
 
 	python2 setup.py build
 	python2 setup.py install --root=$PKG --prefix=/usr

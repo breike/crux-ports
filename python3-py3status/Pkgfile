@@ -4,7 +4,7 @@
 # Depends on: python3
 
 name=python3-py3status
-version=3.3
+version=3.6
 release=1
 source=(https://github.com/ultrabug/py3status/archive/$version.tar.gz)
 

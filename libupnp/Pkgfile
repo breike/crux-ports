@@ -1,0 +1,17 @@
+# Description: A Portable Open Source UPnP Development Kit
+# Homepage:    http://pupnp.sourceforge.net/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  
+
+name=libupnp
+version=1.6.22
+release=1
+source=(https://sourceforge.net/projects/pupnp/files/pupnp/libUPnP%20$version/libupnp-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+
+    ./configure --prefix=/usr
+    make
+    make DESTDIR=$PKG install
+}

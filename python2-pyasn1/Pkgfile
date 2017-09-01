@@ -5,9 +5,9 @@
 # Depends on:  python2 python2-setuptools
 
 name=python2-pyasn1
-version=0.2.3
+version=0.3.3
 release=1
-source=(https://github.com/etingof/pyasn1/archive/$version.tar.gz)
+source=(https://github.com/etingof/pyasn1/archive/v$version.tar.gz)
 
 build() {
 	cd pyasn1-$version

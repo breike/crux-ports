@@ -4,7 +4,7 @@
 # Depends on:  python2 python2-setuptools
 
 name=python2-pyflakes
-version=1.3.0
+version=1.6.0
 release=1
 source=(https://github.com/PyCQA/pyflakes/archive/${version}.tar.gz)
 

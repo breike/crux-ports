@@ -5,9 +5,9 @@
 # Depends on:  python2 python2-setuptools
 
 name=python2-futures
-version=3.0.3
+version=3.1.1
 release=1
-source=(http://pypi.python.org/packages/source/f/futures/futures-$version.tar.gz)
+source=(https://pypi.python.org/packages/cc/26/b61e3a4eb50653e8a7339d84eeaa46d1e93b92951978873c220ae64d0733/futures-3.1.1.tar.gz)
 
 build() {
 	cd futures-$version

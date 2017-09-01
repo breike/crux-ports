@@ -5,9 +5,9 @@
 # Depends on:  libffi python2-pycparser
 
 name=python2-cffi
-version=1.5.2
+version=1.10.0
 release=1
-source=(http://pypi.python.org/packages/source/c/cffi/cffi-$version.tar.gz)
+source=(https://pypi.python.org/packages/5b/b9/790f8eafcdab455bcd3bd908161f802c9ce5adbf702a83aa7712fcc345b7/cffi-1.10.0.tar.gz)
 
 build() {
 	cd cffi-$version

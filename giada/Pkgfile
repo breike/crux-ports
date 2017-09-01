@@ -1,10 +1,10 @@
 # Description: Your hardcore loop machine.
 # URL:         http://www.giadamusic.com/
 # Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on:  fltk libsndfile libsamplerate jansson rtmidi
+# Depends on:  fltk libsndfile libsamplerate jansson rtmidi jack pulseaudio
 
 name=giada
-version=0.12.2
+version=0.14.2
 release=1
 source=(https://github.com/monocasual/giada/archive/v${version}.tar.gz)
 
@@ -13,7 +13,8 @@ build()
 	cd $name-$version	
 
 	autoreconf -i
-	./configure --target=linux CXXFLAGS="$CXXFLAGS -I/usr/include/rtmidi" --prefix=/usr
+	./configure --help
+	./configure --target=linux CXXFLAGS="$CXXFLAGS -I/usr/include/rtmidi" --disable-pulseaudio --prefix=/usr
 	make
 	make DESTDIR=$PKG/ install
 }

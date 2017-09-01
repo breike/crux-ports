@@ -5,7 +5,7 @@
 # Depends on:  python2-cryptography python2
 
 name=python2-pyopenssl
-version=16.2.0
+version=17.2.0
 release=1
 source=(https://github.com/pyca/pyopenssl/archive/$version.tar.gz)
 

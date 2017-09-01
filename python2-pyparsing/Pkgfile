@@ -5,9 +5,9 @@
 # Depends on:  python2
 
 name=python2-pyparsing
-version=2.0.3
+version=2.2.0
 release=1
-source=(https://pypi.python.org/packages/source/p/pyparsing/pyparsing-$version.tar.gz)
+source=(https://pypi.python.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz)
 
 build() {
 

@@ -20,4 +20,5 @@ build() {
 	                                    --root=$PKG \
 	                                    --optimize=1 \
 	                                    --skip-build
+	mv $PKG/usr/bin/easy_install $PKG/usr/bin/python3-easy_install
 }

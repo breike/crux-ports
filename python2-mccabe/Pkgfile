@@ -4,7 +4,7 @@
 # Depends on:  python2 python2-setuptools
 
 name=python2-mccabe
-version=0.5.2
+version=0.6.1
 release=1
 source=(https://github.com/PyCQA/mccabe/archive/${version}.tar.gz)
 

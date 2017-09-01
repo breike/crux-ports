@@ -1,0 +1,16 @@
+# Description: C extensions for Python.
+# URL: http://www.cython.org/
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Packager: Danny Rawlins, crux at romster dot me
+# Depends on: python2
+
+name=python2-cython
+version=0.26.1
+release=1
+source=(https://github.com/cython/cython/archive/$version.tar.gz)
+
+build() {
+	cd cython-$version
+
+	python2 setup.py install --root $PKG
+}

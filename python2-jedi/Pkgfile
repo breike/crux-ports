@@ -4,7 +4,7 @@
 # Depends on:  python2
 
 name=python2-jedi
-version=0.9.0
+version=0.10.2
 release=1
 source=(https://github.com/davidhalter/jedi/archive/v${version}.tar.gz)
 

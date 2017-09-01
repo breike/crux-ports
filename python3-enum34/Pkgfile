@@ -7,7 +7,7 @@
 name=python3-enum34
 version=1.1.2
 release=1
-source=(http://pypi.python.org/packages/source/e/enum34/enum34-$version.tar.gz)
+source=(https://pypi.python.org/packages/e8/26/a6101edcf724453845c850281b96b89a10dac6bd98edebc82634fccce6a5/enum34-1.1.6.zip)
 
 build() {
 	cd enum34-$version

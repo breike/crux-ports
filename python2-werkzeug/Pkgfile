@@ -4,7 +4,7 @@
 # Depends on:  python2 python2-setuptools python2-requests
 
 name=python2-werkzeug
-version=0.11.15
+version=0.12.2
 release=1
 source=(https://github.com/pallets/werkzeug/archive/$version.tar.gz)
 

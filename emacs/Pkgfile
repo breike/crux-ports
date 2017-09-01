@@ -1,0 +1,27 @@
+# Description: An extensible, customizable, free/libre text editor
+# Homepage:    https://www.gnu.org/software/emacs/index.html
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  
+
+name=emacs
+version=25.2
+release=1
+source=(http://mirror.tochlab.net/pub/gnu/emacs/emacs-$version.tar.xz)
+
+build() {
+    cd $name-$version
+
+     ./configure --prefix=/usr \
+                 --with-x \
+                 --with-x-toolkit=athena \
+                 --with-xft \
+                 --with-sound=alsa \
+                 --without-dbus \
+                 --without-gconf \
+                 --without-gsettings \
+                 --without-gpm \
+                 --without-toolkit-scroll-bars
+     make
+
+     make DESTDIR=$PKG/ install
+}

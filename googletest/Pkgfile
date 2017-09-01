@@ -4,24 +4,13 @@
 # Depends on:
 
 name=googletest
-version=ec44c6c
+version=1.8.0
 release=1
-source=()
+source=(https://github.com/google/googletest/archive/release-$version.tar.gz)
 
 build()
 {
-	cd $PKGMK_SOURCE_DIR
-        if cd $name; then
-                git fetch git://github.com/google/googletest master
-                git checkout $sversion
-        else
-                git clone git://github.com/google/googletest $name
-                cd $name
-                git checkout $sversion
-        fi
-        cp -r $PKGMK_SOURCE_DIR/$name $SRC
-
-        cd $SRC/$name
+	cd $name-release-$version
 
 	mkdir build && cd build
 	cmake -DCMAKE_INSTALL_PREFIX=/usr \

@@ -1,0 +1,17 @@
+# Description: A small C library that is supposed to make it easy to run an HTTP server as part of another application.
+# Homepage:    https://www.gnu.org/software/libmicrohttpd/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  libgcrypt gnutls curl
+
+name=libmicrohttpd
+version=0.9.55
+release=1
+source=(https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-$version.tar.gz)
+
+build() {
+    cd $name-$version
+
+    ./configure --prefix=/usr
+    make
+    make DESTDIR=$PKG/ install
+}

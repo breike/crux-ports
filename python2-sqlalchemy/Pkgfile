@@ -4,7 +4,7 @@
 # Depends on:  python2
 
 name=python2-sqlalchemy
-version=rel_1_1_5
+version=rel_1_1_13
 release=1
 source=(https://github.com/zzzeek/sqlalchemy/archive/$version.tar.gz)
 

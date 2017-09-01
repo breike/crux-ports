@@ -1,17 +1,17 @@
 # Description: Secure communication for everyone.
 # URL:         https://retroshare.github.io/index.html
 # Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on:  libupnp glib qt4 openssl xorg-libxscrnsaver speex libgnome-keyring bzip2 sqlcipher libxslt libmicrohttpd opencv curl ffmpeg  speexdsp
+# Depends on:  libupnp glib qt4 openssl xorg-libxscrnsaver speex bzip2 sqlcipher libxslt libmicrohttpd opencv curl ffmpeg speexdsp
 
 name=retroshare
-version=0.6.1
+version=0.6.3
 release=1
 source=(https://github.com/RetroShare/RetroShare/archive/v${version}.tar.gz)
 
 build()
 {
 	cd RetroShare-$version
-	qmake PREFIX=$PKG
+	qmake PREFIX=$PKG DESTDIR=$PKG
 	make
 	make DESTDIR=$PKG install
 }

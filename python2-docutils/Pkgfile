@@ -5,7 +5,7 @@
 # Depends on:  python2
 
 name=python2-docutils
-version=0.12
+version=0.14
 release=1
 source=(http://download.sourceforge.net/docutils/docutils-$version.tar.gz)
 

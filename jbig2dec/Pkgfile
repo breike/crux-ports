@@ -1,0 +1,18 @@
+# Description: A decoder implementation of the JBIG2 image compression format.
+# Homepage:    http://artifex.com/developers-ghostscript-jbig2dec/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  
+
+name=jbig2dec
+version=0.13
+release=1
+source=(http://www.artifex.com/jbig2dec/download/jbig2dec-$version.tar.gz)
+
+build() {
+    cd $name-$version
+
+    ./autogen.sh
+    ./configure --prefix=$PKG/usr
+    make
+    make DEPINST=$PKG/ install
+}

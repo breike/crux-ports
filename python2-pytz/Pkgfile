@@ -10,7 +10,7 @@ source=(https://github.com/stub42/pytz/archive/release_$version.tar.gz)
 
 build()
 {
-	cd pytz-$version
+	cd pytz-release_$version
 
 	/usr/bin/python2 setup.py build
 	/usr/bin/python2 setup.py install --root=$PKG --prefix=/usr

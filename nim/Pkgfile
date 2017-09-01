@@ -4,7 +4,7 @@
 # Depends on: 
 
 name=nim
-version=0.16.0
+version=0.17.0
 release=1
 source=(https://github.com/nim-lang/Nim/archive/v$version.tar.gz)
 

@@ -4,7 +4,7 @@
 # Depends on:  python3
 
 name=python3-click
-version=6.6
+version=6.7
 release=1
 source=(https://github.com/pallets/click/archive/$version.tar.gz)
 

@@ -1,0 +1,16 @@
+# Description: A document viewer
+# Homepage:    https://pwmt.org/projects/zathura/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  gtk3 intltool check girara sqlite3 file docutils
+
+name=zathura
+version=0.3.7
+release=1
+source=(https://pwmt.org/projects/zathura/download/zathura-$version.tar.gz)
+
+build() {
+    cd $name-$version
+
+    make
+    make DESTDIR=$PKG/ install
+}

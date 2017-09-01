@@ -1,0 +1,26 @@
+# Description: GeoIP Legacy C API 
+# Homepage:    https://github.com/maxmind/geoip-api-c
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  
+
+name=libgeoip
+version=1.6.11
+release=1
+source=(
+        https://github.com/maxmind/geoip-api-c/archive/v$version.tar.gz
+        http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
+)
+
+build() {
+    cd geoip-api-c-$version
+
+    ./bootstrap
+    ./configure --prefix=/usr
+    make
+    make check
+    make DESTDIR=$PKG/ install
+
+    cd ..
+    gunzip GeoIP.dat.gz
+    install -D -m 755 GeoIP.dat $PKG/usr/share/GeoIP/GeoIP.dat
+}

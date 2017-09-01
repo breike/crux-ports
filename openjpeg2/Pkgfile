@@ -1,0 +1,18 @@
+# Description: An open-source JPEG 2000 codec
+# Homepage:    http://www.openjpeg.org/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  
+
+name=openjpeg2
+version=2.2.0
+release=1
+source=(https://github.com/uclouvain/openjpeg/archive/v$version.tar.gz)
+
+build() {
+    cd openjpeg-$version
+
+    mkdir build && cd build
+    cmake .. -DCMAKE_BUILD_TYPE=Release
+    make
+    make DESTDIR=$PKG/ install
+}

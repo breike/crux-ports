@@ -1,0 +1,17 @@
+# Description: A small build system with a focus on speed.
+# Homepage:    https://ninja-build.org/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  python2
+
+name=ninja
+version=1.7.2
+release=1
+source=(https://github.com/ninja-build/ninja/archive/v$version.tar.gz)
+
+build() {
+    cd $name-$version
+
+    ./configure.py --bootstrap
+    
+    install -D ninja $PKG/usr/bin/ninja
+}

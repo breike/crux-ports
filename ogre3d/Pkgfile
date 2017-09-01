@@ -2,23 +2,15 @@
 # URL:         http://www.ogre3d.org/
 # Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
 # Packager:    Kristian Lehmann, email at zero-io dot net
-# Depends on:  mercurial
+# Depends on:  
 
 name=ogre3d
-version=hg
+version=1.10.7
 release=1
-source=()
+source=(https://github.com/OGRECave/ogre/archive/v$version.tar.gz)
 
 build() {
-	
-	cd $PKGMK_SOURCE_DIR
-
-	if cd $name; then
-		hg pull -q;
-	else
-		hg clone https://bitbucket.org/sinbad/ogre/src $name
-		cd $name
-	fi
+	cd ogre-$version
 
 	mkdir -p build && cd build
 

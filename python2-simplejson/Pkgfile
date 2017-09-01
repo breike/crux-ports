@@ -3,9 +3,9 @@
 # Depends on:   python2
 
 name=python2-simplejson
-version=3.8.2
+version=3.11.1
 release=1
-source=(http://pypi.python.org/packages/source/s/simplejson/simplejson-$version.tar.gz)
+source=(https://github.com/simplejson/simplejson/archive/v$version.tar.gz)
 
 build() {
 	cd simplejson-$version

@@ -1,0 +1,18 @@
+# Description: An open source extension to SQLite that provides transparent 256-bit AES encryption of database files.
+# Homepage:    https://www.zetetic.net/sqlcipher/open-source/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  sqlite3 tcl
+
+name=sqlcipher
+version=3.4.1
+release=1
+source=(https://github.com/sqlcipher/sqlcipher/archive/v$version.tar.gz)
+
+build() {
+    cd $name-$version
+    
+    ./configure --enable-tempstore=yes CFLAGS="-DSQLITE_HAS_CODEC" \
+        LDFLAGS="-lcrypto" --prefix=/usr
+    make
+    make DESTDIR=$PKG/ install
+}

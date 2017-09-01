@@ -4,7 +4,7 @@
 # Depends on:  python3 python3-numpy
 
 name=python3-imageio
-version=1.5
+version=2.2.0
 release=1
 source=(https://github.com/imageio/imageio/archive/v$version.tar.gz)
 

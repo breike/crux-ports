@@ -1,0 +1,17 @@
+# Description: A script for managing file archives of various types (tar, tar+gzip, zip etc)
+# Homepage:    http://www.nongnu.org/atool/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com  
+# Depends on:  bash perl file tar gzip bzip2 p7zip unzip unrar cpio
+
+name=atool
+version=0.39.0
+release=1
+source=(http://savannah.nongnu.org/download/atool/atool-$version.tar.gz)
+
+build() {
+    cd $name-$version
+
+    sed -i 's/\#!\ \/bin\/sh/\#!\ \/bin\/bash/g' configure
+    ./configure --prefix=$PKG/usr
+    make DEPINST=$PKG install
+}

@@ -1,5 +1,5 @@
 # Description:  an interactive process viewer with vim keybindings
-# URL:          http://hisham.hm/htop
+# URL:          https://github.com/KoffeinFlummi/htop-vim
 # Maintainer:   Jake Slazenger jake dot slazenger at yandex dot com
 # Depends on:   ncurses
 

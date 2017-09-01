@@ -1,0 +1,16 @@
+# Description: An interface library
+# Homepage:    https://pwmt.org/projects/girara/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  gtk3 intltool check
+
+name=girara
+version=0.2.7
+release=1
+source=(https://pwmt.org/projects/girara/download/girara-$version.tar.gz)
+
+build() {
+    cd $name-$version
+
+    make
+    make DESTDIR=$PKG/ install
+}

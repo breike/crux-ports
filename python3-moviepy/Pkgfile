@@ -4,9 +4,9 @@
 # Depends on:  python3 imagemagick python3-decorator pyhton3-tqdm python3-numpy python3-imageio
 
 name=python3-moviepy
-version=0.2.2.11
+version=0.2.3.2
 release=1
-source=(https://pypi.python.org/packages/ef/9d/6131378948f8a4a0f20a82b5212c3083bfcc06acfe0548976fcc2a98f34b/moviepy-$version.tar.gz)
+source=(https://github.com/Zulko/moviepy/archive/v$version.tar.gz)
 
 build()
 {

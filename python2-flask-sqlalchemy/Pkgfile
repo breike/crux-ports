@@ -4,7 +4,7 @@
 # Depends on:  python2 python2-sqlalchemy
 
 name=python2-flask-sqlalchemy
-version=2.1
+version=2.2
 release=1
 source=(https://github.com/mitsuhiko/flask-sqlalchemy/archive/$version.tar.gz)
 

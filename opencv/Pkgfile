@@ -1,14 +1,14 @@
 # Description:	Open Computer Vision Library
-# URL:		http://opencvlibrary.sf.net
+# URL:		    http://opencvlibrary.sf.net
 # Maintainer:	Jake Slazenger jake dot slazenger at yandex dot com
 # Packager:     Alan Mizrahi, alan at mizrahi dot com dot ve
 # Depends on:	cmake gstreamer
-# Optional:	jasper gtk openexr python ant
+# Optional:	    jasper gtk openexr python2 ant
 
 name=opencv
-version=2.4.13
+version=3.3.0
 release=1
-source=(http://downloads.sourceforge.net/opencvlibrary/$name-$version.zip)
+source=(https://github.com/opencv/opencv/archive/$version.tar.gz)
 
 build() {
 	mkdir build

@@ -1,10 +1,10 @@
 # Description: Animated sprite editor & pixel art tool. 
 # URL:         http://www.aseprite.org/
 # Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on:  googletest
+# Depends on:  ninja googletest
 
 name=aseprite
-version=e20fdc0
+version=7c6d927
 release=1
 source=()
 
@@ -27,10 +27,12 @@ build()
 	cp -R $name $SRC/ && cd $SRC/$name
 
 	mkdir build && cd build
-	cmake -DCMAKE_INSTALL_PREFIX=/usr \
+	cmake -DCMAKE_INSTALL_PREFIX=$PKG/usr \
 	      -DCMAKE_BUILD_TYPE=Release \
 	      -DCMAKE_INCLUDE_FOLDER=/usr/include \
+	      -G Ninja \
 	      ..
-	make all
-	make DESTDIR=$PKG install
+
+	ninja aseprite
+	ninja install
 }
