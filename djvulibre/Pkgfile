@@ -1,0 +1,18 @@
+# Description: A GPL implementation of DjVu maintained by the original inventors of DjVu.
+# Homepage:    http://djvu.sourceforge.net/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  
+
+name=djvulibre
+version=3.5.27
+release=1
+source=(https://sourceforge.net/projects/djvu/files/DjVuLibre/3.5.27/djvulibre-$version.tar.gz)
+
+build() {
+    cd $name-$version
+
+    ./configure --prefix=/usr
+    make
+
+    make DESTDIR=$PKG install
+}

@@ -1,0 +1,17 @@
+# Description: A djvu plugin for zathura.
+# Homepage:    https://pwmt.org/projects/zathura-djvu/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  zathura djvulibre
+
+name=zathura-djvu
+version=0.2.6
+release=1
+source=(https://pwmt.org/projects/zathura-djvu/download/zathura-djvu-$version.tar.gz)
+
+build() {
+    cd $name-$version
+
+    make
+
+    make DESTDIR=$PKG/ install
+}
