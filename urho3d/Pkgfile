@@ -4,7 +4,7 @@
 # Depends on:  cmake mesa3d xorg-libx11 xorg-libxrandr
 
 name=urho3d
-version=1.6
+version=1.7
 release=1
 source=(https://github.com/urho3d/Urho3D/archive/$version.tar.gz)
 

@@ -1,0 +1,20 @@
+# Description: Sorts directory structures of FAT file systems.
+# Homepage:    http://fatsort.sourceforge.net/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  help2man
+
+name=fatsort
+version=1.4.2.439
+release=1
+source=(https://sourceforge.net/projects/fatsort/files/fatsort-$version.tar.xz)
+
+build() {
+    MANDIR=/usr/share/man/man1
+    SBINDIR=/usr/sbin 
+
+    cd $name-$version
+
+    make
+
+    make DESTDIR=$PKG/ install
+}
