@@ -2,25 +2,41 @@
 # URL:          http://www.mupdf.com/
 # Maintainer:   Jake Slazenger jake dot slazenger at yandex dot com
 # Packager:     Juergen Daubert, jue at crux dot nu
-# Depends on:   curl freetype libjpeg-turbo xorg-libxext glfw3
+# Depends on:   curl freetype libjpeg-turbo xorg-libxext glfw3 mujs
 # Stealed from: https://git.archlinux.org/svntogit/community.git/tree/trunk/PKGBUILD?h=packages/mupdf
 
 name=mupdf
 version=1.11
 release=1
-source=(http://mupdf.com/downloads/mupdf-$version-source.tar.gz)
+source=(
+        http://mupdf.com/downloads/mupdf-$version-source.tar.gz
+        0001-mupdf-openjpeg.patch
+)
 
 build() {
+    # this does not build with openssl 1.1.0, so disable checks
+    CFLAGS+=' -fPIC'
+    CXXFLAGS+=' -fPIC'
     export CFLAGS CXXFLAGS
+
+    HAVE_GLFW='yes'
+    SYS_GLFW_CFLAGS="$(pkg-config --cflags glfw3)"
+    SYS_GLFW_LIBS="$(pkg-config --libs glfw3) -lGL"
     export HAVE_GLFW SYS_GLFW_CFLAGS SYS_GLFW_LIBS
 
     cd $name-$version-source
+
+    patch -Np1 < "../0001-mupdf-openjpeg.patch"
+    
+    # remove bundled packages, we want our system libraries
+    rm -rf thirdparty/{curl,freetype,glfw,harfbuzz,jbig2dec,jpeg,openjpeg,zlib}
+
+    sed -i 's/pkg-config --exists \(libcrypto\|openssl\)/false/' Makerules
     
     sed '/^JBIG2DEC_CFLAGS :=/s|$| -I./include/mupdf|' -i Makethird
     
-    make CFLAGS+=' -fPIC  -I include/ -I thirdparty/harfbuzz/src -I thirdparty/openjpeg/src/lib/openjp2 -I thirdparty/libjpeg/ -I thirdparty/mujs/ -I scripts/freetype/ -I generated/ -I thirdparty/freetype/include/ -I thirdparty/jbig2dec/  -L build/release/thirdparty/ -L build/release/thirdparty/freetype/ -lmupdf  -ljpeg -lfreetype -lz -ljbig2dec -lcrypto -ldl -lmujs -lopenjpeg' \
-         CXXFLAGS+=' -fPIC -I/usr/include/freetype2 -I include/ -I/usr/include/harfbuzz -L build/release/thirdparty/freetype/ -lmupdf  -ljpeg -lfreetype -lz -ljbig2dec -lcrypto -ldl -lmujs -lopenjpeg' build=release \
-         prefix=$PKG/usr  install
+    make build=release
+    make prefix=$PKG/usr  install
    
     ln -s mupdf-x11-curl $PKG/usr/bin/mupdf
     rm -r $PKG/usr/share/doc

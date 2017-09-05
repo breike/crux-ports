@@ -14,6 +14,7 @@ build() {
 	cd $name-$version
 #	patch -d . -Np1 < ../zathura-pdf-mupdf-1.9.patch
 
-	make CFLAGS="-fPIC -lmupdf -lmupdfthird -lbig2dec $(pkg-config --cflags glib-2.0)  -I/usr/include/mupdf -I/usr/include -I/usr/include/cairo -I/usr/include/glib-2.0 $CFLAGS" 
+#	make CFLAGS="-fPIC -lmupdf -lmupdfthird -lbig2dec $(pkg-config --cflags glib-2.0)  -I/usr/include/mupdf -I/usr/include -I/usr/include/cairo -I/usr/include/glib-2.0 $CFLAGS" 
+	make
 	make DESTDIR=$PKG install
 }

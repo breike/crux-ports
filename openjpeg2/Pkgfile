@@ -12,7 +12,9 @@ build() {
     cd openjpeg-$version
 
     mkdir build && cd build
-    cmake .. -DCMAKE_BUILD_TYPE=Release
-    make
-    make DESTDIR=$PKG/ install
+    cmake .. \
+               -DCMAKE_INSTALL_PREFIX=/usr \
+               -DCMAKE_BUILD_TYPE=Release
+    make CFLAGS="$CFLAGS -fPIC"
+    make prefix=/usr DESTDIR=$PKG/ install
 }

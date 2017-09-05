@@ -13,7 +13,9 @@ build()
 	cd Urho3D-$version
 	mkdir -p build && cd build
 
-	cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+	cmake -DCMAKE_INSTALL_PREFIX=/usr \
+              -DCMAKE_INSTALL_BINDIR=/usr/bin/urho3d \
+              ..
 	make
-	make DESTDIR=$PKG prefix=/usr install
+	make DESTDIR=$PKG install
 }

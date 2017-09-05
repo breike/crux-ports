@@ -1,0 +1,17 @@
+# Description: An embeddable Javascript interpreter in C
+# Homepage:    https://github.com/ccxvii/mujs
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  
+
+name=mujs
+version=1.0.1
+release=1
+source=(https://github.com/ccxvii/mujs/archive/$version.tar.gz)
+
+build() {
+    cd $name-$version
+
+    make release
+    
+    make prefix=/usr DESTDIR=$PKG/ install
+}
