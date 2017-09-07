@@ -1,0 +1,102 @@
+# Description: Goanna-based web browser
+# URL:         http://www.palemoon.org
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Packager:    John Vogel, jvogel4 at stny dot rr dot com
+# Depends on:  alsa-lib autoconf-2.13 cairo dbus-glib desktop-file-utils ffmpeg gtk icu libevent libffi libjpeg-turbo libpng libvpx libwebp mesa3d nss python shared-mime-info startup-notification unzip x264 x265 xorg-libpixman xorg-libxt yasm zip
+
+name=palemoon
+version=27.4.2
+release=1
+source=(https://github.com/MoonchildProductions/Pale-Moon/archive/${version}_Release.tar.gz)
+
+build() {
+	cd Pale-Moon-${version}_Release
+
+	mkdir -p $SRC/pmbuild
+
+	cat > .mozconfig << EOF
+export MOZILLA_OFFICIAL=1
+
+mk_add_options MOZ_OBJDIR=$SRC/pmbuild/
+mk_add_options MOZ_CO_PROJECT=browser
+
+ac_add_options --enable-application=browser
+ac_add_options --enable-official-branding
+ac_add_options --with-distribution-id=nu.crux
+ 
+ac_add_options --enable-chrome-format=omni
+ac_add_options --enable-default-toolkit=cairo-gtk2
+ac_add_options --enable-optimize="-O2 -msse2 -march=native -mfpmath=sse"
+ac_add_options --enable-extensions="default,-gnomevfs"
+ 
+ac_add_options --enable-devtools
+ac_add_options --enable-jemalloc
+ac_add_options --enable-release
+ac_add_options --enable-shared-js
+ac_add_options --enable-strip
+ 
+ac_add_options --x-libraries=/usr/lib
+ac_add_options --with-pthreads
+
+ac_add_options --with-system-bz2
+ac_add_options --with-system-icu
+ac_add_options --with-system-jpeg
+ac_add_options --with-system-nspr
+ac_add_options --with-system-nss
+ac_add_options --with-system-libevent
+ac_add_options --with-system-libvpx
+ac_add_options --with-system-png
+ac_add_options --with-system-webp
+ac_add_options --with-system-zlib
+
+# use bundled for now
+#--with-libxul-sdk=<DIR>
+
+ac_add_options --disable-codesighs
+ac_add_options --disable-dbus
+ac_add_options --disable-debug
+ac_add_options --disable-gamepad
+ac_add_options --disable-gconf
+ac_add_options --disable-gnomeui
+ac_add_options --disable-installer
+ac_add_options --disable-logging
+ac_add_options --disable-necko-wifi
+ac_add_options --disable-pulseaudio
+ac_add_options --disable-updater
+ac_add_options --disable-websms-backend
+
+
+ac_add_options --enable-devtools
+ac_add_options --enable-ffmpeg
+ac_add_options --enable-startup-notification
+ac_add_options --enable-system-cairo
+ac_add_options --enable-system-ffi
+ac_add_options --enable-system-pixman
+ac_add_options --enable-system-sqlite
+
+#ac_add_options --enable-system-libevent
+#ac_add_options --enable-libproxy
+#ac_add_options --enable-bundled-fonts
+#ac_add_options --enable-sandbox
+#ac_add_options --enable-content-sandbox
+
+EOF
+
+	python mach build
+
+	cd $SRC/pmbuild
+	make package
+
+	mkdir -p $PKG/usr/{bin,lib}
+
+	cd dist
+	cp -r $name $PKG/usr/lib/$name
+	ln -s ../lib/$name/palemoon $PKG/usr/bin/$name
+	rm $PKG/usr/lib/$name/$name-bin
+	ln -s $name $PKG/usr/lib/$name/$name-bin
+
+	mkdir -p $PKG/etc/revdep.d
+	echo "/usr/lib/$name" > $PKG/etc/revdep.d/$name
+	echo "/usr/lib/$name/components" >> $PKG/etc/revdep.d/$name
+	echo "/usr/lib/$name/browser/components" >> $PKG/etc/revdep.d/$name
+}

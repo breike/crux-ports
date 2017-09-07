@@ -1,0 +1,20 @@
+# Description: Openbox configuration tool
+# Homepage:    https://github.com/danakj/obconf
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  openbox
+
+name=obconf
+version=2.0.4
+release=1
+source=(https://github.com/danakj/obconf/archive/release-$version.tar.gz)
+
+build() {
+    ls
+    cd $name-release-$version
+
+    ./bootstrap
+    ./configure --prefix=/usr
+    make
+
+    make DESTDIR=$PKG/ install
+}
