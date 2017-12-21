@@ -9,7 +9,7 @@ name=mupdf
 version=1.11
 release=1
 source=(
-        http://mupdf.com/downloads/mupdf-$version-source.tar.gz
+        http://mupdf.com/downloads/archive/mupdf-$version-source.tar.gz
         0001-mupdf-openjpeg.patch
 )
 

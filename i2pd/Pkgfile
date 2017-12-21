@@ -1,0 +1,29 @@
+# Description: A full-featured C++ implementation of I2P client
+# Homepage:    https://github.com/PurpleI2P/i2pd
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  cmake zlib boost openssl
+
+name=i2pd
+version=2.17.0
+release=1
+source=(https://github.com/PurpleI2P/i2pd/archive/$version.tar.gz
+        i2pd.conf
+        i2pd.rc)
+
+build() {
+    cd $name-$version
+    cd build
+
+    cmake -DCMAKE_INSTALL_PREFIX=/usr \
+          WITH_UPNP=OFF \
+          WITH_AESNI=OFF \
+          WITH_BINARY=ON \
+          WITH_LIBRARY=ON \
+          WITH_STATIC=OFF .
+    make
+    make DESTDIR=$PKG install
+
+    mkdir $PKG/etc/rc.d/ -p
+    cp ../../i2pd.conf $PKG/etc/i2pd.conf
+    cp ../../i2pd.rc $PKG/etc/rc.d/i2pd
+}

@@ -1,0 +1,16 @@
+# Description: Driver for disabling NVIDIA GPU.
+# Homepage:    
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  
+
+name=bbswitch
+version=0.8
+release=1
+source=(https://github.com/Bumblebee-Project/$name/archive/v$version.tar.gz)
+
+build() {
+    cd $name-$version
+    make
+    mkdir $PKG/lib/modules/$(uname -r)/extra/ -p
+    cp $name.ko $PKG/lib/modules/$(uname -r)/extra/
+}

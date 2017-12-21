@@ -38,7 +38,7 @@ build () {
 #    rm -r $PKG/usr/lib/python/site-packages/easy_install.py
 #    rm -r $PKG/usr/lib/python/site-packages/setuptools-26.1.1.post20170829-py2.7.egg-info
 #    rm -r $PKG/usr/lib/python/site-packages/easy_install.pyc
-     rm -r $PKG/usr/bin/easy_install
+#     rm -r $PKG/usr/bin/easy_install
 #    rm -r $PKG/usr/bin/easy_install-2.7
 
     rm $PKG/usr/lib/python2.7/{distutils,site-packages,test/data}/README

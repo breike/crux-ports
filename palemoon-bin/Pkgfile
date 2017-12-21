@@ -1,0 +1,19 @@
+# Description: Based on Firefox web-browser (binary version)
+# Homepage:    palemoon.org
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  
+
+name=palemoon-bin
+version=27.6.2
+release=1
+source=(http://linux.palemoon.org/datastore/release/palemoon-27.6.2.en-US.linux-x86_64.tar.bz2)
+
+build() {
+    mkdir $PKG/opt/share/palemoon -p
+    mkdir $PKG/opt/bin/
+    cp palemoon/* $PKG/opt/share/palemoon/ -R
+    ln -s /opt/share/palemoon/palemoon $PKG/opt/bin/palemoon-bin
+    chmod +x $PKG/opt/bin/palemoon-bin
+    chmod 755 $PKG/opt/bin/palemoon-bin
+
+}

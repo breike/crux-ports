@@ -1,0 +1,26 @@
+#!/bin/sh
+#
+# /etc/rc.d/i2pd: start/stop/restart i2pd daemon
+#
+
+# location of the alsactl executable
+I2PD=/usr/bin/i2pd
+
+case $1 in
+	start)
+		$I2PD --daemon --service --conf /etc/i2pd.conf
+		;;
+	stop)
+		killall i2pd 
+		;;
+	restart)
+		$0 stop
+		sleep 2
+		$0 start
+		;;
+	*)
+		echo "Usage: $0 [start|stop|restart]"
+		;;
+esac
+
+# End of file
