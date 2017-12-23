@@ -1,0 +1,17 @@
+# Description: set of command-line programs for extracting and converting images in Microsoft Windows(R) icon and cursor files
+# Homepage:    http://www.nongnu.org/icoutils/
+# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
+# Depends on:  libpng zlib p5-libwww
+
+name=icoutils
+version=0.32.2
+release=1
+source=(http://savannah.nongnu.org/download/icoutils/icoutils-$version.tar.bz2)
+
+build() {
+    cd $name-$version
+
+    ./configure --prefix=$PKG/usr
+    make
+    make DEPINST=$PKG/ install
+}
