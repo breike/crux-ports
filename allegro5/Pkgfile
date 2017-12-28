@@ -1,0 +1,21 @@
+# Description: A multi-platform game programming library for C/C++.
+# URL: http://alleg.sourceforge.net/
+# Maintainer: Danny Rawlins, crux at romster dot me
+# Packager: sten, nick dot steeves at shaw dot ca
+# Depends on: flac gtk libidn libvorbis glu openal physfs xorg-libxpm xorg-libxxf86dga
+
+name=allegro5
+version=5.2.3.0
+release=1
+source=(https://github.com/liballeg/allegro5/archive/$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	cmake \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DCMAKE_BUILD_TYPE=Release .
+
+	make
+	make DESTDIR=$PKG install
+}

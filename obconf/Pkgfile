@@ -1,7 +1,7 @@
 # Description: Openbox configuration tool
 # Homepage:    https://github.com/danakj/obconf
 # Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on:  openbox
+# Depends on:  openbox startup-notification
 
 name=obconf
 version=2.0.4

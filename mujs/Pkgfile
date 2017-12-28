@@ -11,7 +11,7 @@ source=(https://github.com/ccxvii/mujs/archive/$version.tar.gz)
 build() {
     cd $name-$version
 
-    make release
+    make CFLAGS+=" -fPIC " release
     
     make prefix=/usr DESTDIR=$PKG/ install
 }
