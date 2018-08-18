@@ -1,0 +1,17 @@
+# Description: Japanese outline fonts by Information-technology Promotion Agency, Japan.
+# URL:         https://ipafont.ipa.go.jp/node17#en
+# Maintainer:  Jake Slazenger jake dot slzenger at yandex dot com
+# Packager:    6c37 Team, https://github.com/6c37/crux-ports/issues
+# Depends on:  fontconfig	
+
+name=ttf-ipafontex
+version=00301
+release=1
+source=(https://oscdl.ipa.go.jp/IPAexfont/IPAexfont00301.zip)
+
+build() {
+	cd IPAexfont00301
+
+	install -Dm644 ipaexg.ttf $PKG/usr/share/fonts/X11/TTF/IPA/Gothic.ttf
+	install -Dm644 ipaexm.ttf $PKG/usr/share/fonts/X11/TTF/IPA/Mincho.ttf
+}

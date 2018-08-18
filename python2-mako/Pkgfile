@@ -1,0 +1,20 @@
+# Description: A template library written in Python.
+# URL: http://www.makotemplates.org/
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Packager: Danny Rawlins, crux at romster dot me
+# Depends on: python2-markupsafe
+
+name=python2-mako
+version=1.0.7
+release=1
+source=(https://files.pythonhosted.org/packages/source/M/Mako/Mako-$version.tar.gz)
+
+build() {
+	cd Mako-$version
+
+	/usr/bin/env python2 setup.py build
+
+	/usr/bin/env python2 setup.py install --prefix=/usr \
+                                              --root=$PKG \
+                                              --optimize=1
+}

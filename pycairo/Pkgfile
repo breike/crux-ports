@@ -1,0 +1,23 @@
+# Description: A set of python bindings for cairo
+# URL: http://cairographics.org/pycairo
+# Maintainer: Jake Slazenger jake slazenger at yandex dot com
+# Packager: Jose V Beneyto, sepen at crux dot nu
+# Depends on: cairo
+
+name=pycairo
+version=1.10.0
+release=1
+source=(http://cairographics.org/releases/py2cairo-$version.tar.bz2
+        waf.patch)
+
+build() {
+	cd py2cairo-$version
+
+        mv ../waf.patch .
+	patch -p0 < waf.patch
+
+	./waf configure --prefix=/usr
+
+	./waf build
+	./waf install --destdir=$PKG
+}

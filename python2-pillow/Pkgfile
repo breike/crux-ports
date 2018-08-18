@@ -2,7 +2,7 @@
 # URL: http://python-pillow.github.io/
 # Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
 # Packager: Danny Rawlins, crux at romster dot me
-# Depends on: python3-setuptools lcms2 libwebp zlib libtiff freetype openjpeg
+# Depends on: python2-setuptools lcms2 libwebp zlib libtiff freetype openjpeg
 
 name=python2-pillow
 version=4.1.1
