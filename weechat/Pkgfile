@@ -1,0 +1,25 @@
+# Description: WeeChat is a fast, light and extensible chat client
+# URL: http://www.weechat.org/
+# Maintainer: Jake Slazenger jake dot slazenger at yandex dot com
+# Packager: Joacim Olsen Tangen, joacim at joac dot im
+# Depends on: libgcrypt, gnutls, cmake
+# Optional: perl, lua, python, ruby, asciidoc
+
+name=weechat
+version=2.2
+release=1
+source=(https://github.com/weechat/weechat/archive/v${version}.tar.gz)
+
+build() {
+	cd $name-$version
+
+	mkdir build
+	cd build
+
+	cmake .. -DCMAKE_INSTALL_PREFIX=/usr \
+		-DENABLE_MAN=on \
+		-DMANDIR=/usr/share/man \
+		-DCA_FILE=/etc/ssl/cert.pem
+	make
+	make DESTDIR=$PKG install
+}
