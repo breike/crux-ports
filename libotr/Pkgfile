@@ -1,0 +1,17 @@
+# Description: C library that implements the OTR protocol.
+# URL: https://otr.cypherpunks.ca
+# Maintainer: Eike Beyer eike dot beyer at yandex dot com
+# Depends on: libgcrypt libgpg-error
+
+name=libotr
+version=4.1.1
+release=1
+source=(https://otr.cypherpunks.ca/libotr-${version}.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure --prefix=/usr --with-pic --mandir=/usr/share/man
+	make
+	make DESTDIR=$PKG install
+}

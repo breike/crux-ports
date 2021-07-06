@@ -1,0 +1,23 @@
+# Description: a console based XMPP client inspired by Irssi
+# URL: http://www.profanity.im/
+# Depends on: curl glib gpgme libgcrypt libotr libsignal-protocol-c libstrophe ncurses readline sqlite3
+
+name=profanity
+version=0.10.0
+release=1
+source=(https://profanity-im.github.io/profanity-${version}.tar.gz)
+
+build () {
+    cd $name-$version
+
+    ./configure \
+	    --prefix=/usr \
+	    --enable-omemo \
+	    --enable-pgp \
+	    --enable-otr \
+	    --with-themes \
+	    --enable-icons-and-clipboard
+
+    make
+    make DESTDIR=$PKG install
+}
