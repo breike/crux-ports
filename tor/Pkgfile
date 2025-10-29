@@ -1,0 +1,21 @@
+# Description: Anonymizing overlay network for TCP
+# URL:         https://www.torproject.org/download/tor/
+# Maintainer:  Eike Beyer eike dot beyer at yandex dot com
+# Depends on:  libcap libevent libseccomp openssl zstd
+
+name=tor
+version=0.4.8.19
+release=1
+source=(https://dist.torproject.org/${name}-${version}.tar.gz)
+
+build() {
+	cd $name-$version
+
+	./configure \
+		--prefix=/usr \
+		--sysconfdir=/etc \
+		--localstatedir=/var \
+		--enable-gpl
+	make
+	make PREFIX=/usr DESTDIR=$PKG install
+}
