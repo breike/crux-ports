@@ -1,12 +1,12 @@
 # Description: An extensible, customizable, free/libre text editor
 # Homepage:    https://www.gnu.org/software/emacs/index.html
-# Maintainer:  Jake Slazenger jake dot slazenger at yandex dot com
-# Depends on:  
+# Maintainer:  Eike Beyer, eike dot beyer at yandex dot com
+# Depends on:  gnutls
 
 name=emacs
-version=25.2
+version=29.3
 release=1
-source=(http://mirror.tochlab.net/pub/gnu/emacs/emacs-$version.tar.xz)
+source=(https://ftpmirror.gnu.org/$name/$name-$version.tar.gz)
 
 build() {
     cd $name-$version
