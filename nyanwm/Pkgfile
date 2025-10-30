@@ -1,0 +1,22 @@
+# Description: StumpWM - powerful window manager written in Common Lisp
+# URL: http://www.nongnu.org/stumpwm/
+# Maintainer: Eike Beyer, eike dot beyer at yandex dot com
+# Packager: Sean Whitton, sean at silentflame dot com
+# Depends on: sbcl texinfo git
+
+name=nyanwm
+version=git
+release=1
+
+build ()
+{
+    export SBCL_HOME=/usr/lib/sbcl
+    git clone https://github.com/breike/nyanwm
+    cd nyanwm
+    ./autogen.sh
+    ./configure
+    make
+    mkdir $PKG/usr/
+    make prefix=$PKG/usr/ install
+    rm -rf $PKG/usr/share/
+}
