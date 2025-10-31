@@ -1,0 +1,21 @@
+# Description: GTK/VTE based terminal emulator
+# URL: https://www.pleyades.net/david/projects/sakura 
+# Maintainer: Eike Beyer, eike dot beyer at yandex dot com
+# Depends on: cmake glib gtk3 vte3 xorg-libx11
+
+name=sakura
+version=3.8.9
+release=1
+source=(https://launchpad.net/sakura/trunk/$version/+download/$name-$version.tar.bz2)
+
+build ()
+{
+    cd $name-$name-$version
+
+    cmake -B build -S "$name-$version" \
+       -DCMAKE_BUILD_TYPE='None' \
+       -DCMAKE_INSTALL_PREFIX='/usr' \
+       -Wno-dev   cmake --build build
+
+    DESTDIR="$PKG" cmake --install build
+}
