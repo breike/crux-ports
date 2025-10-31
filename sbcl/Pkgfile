@@ -1,0 +1,33 @@
+# Description: Steel Bank Common Lisp (binary)
+# URL: http://www.sbcl.org/
+# Maintainer: Eike Beyer, eike dot beyer at yandex dot com
+# Packager: Sean Whitton, sean at silentflame dot com
+# Depends on: glibc texinfo
+
+name=sbcl
+version=2.2.10
+release=1
+source=(https://github.com/$name/$name/archive/refs/tags/$name-$version.tar.gz)
+
+build ()
+{
+    cd $name-$name-$version
+    echo '"1.0.99.999"' > version.lisp-expr
+
+    mkdir $PKG/usr
+    export CFLAGS+=" -D_GNU_SOURCE -fno-omit-frame-pointer -DSBCL_HOME=/usr/lib/sbcl"
+    export GNUMAKE="make"
+    
+    # build system uses LINKFLAGS and OS_LIBS to build LDFLAGS
+    export LINKFLAGS="$LDFLAGS"
+    unset LDFLAGS
+    unset MAKEFLAGS
+    
+    sh make.sh sbcl --prefix=/usr --fancy
+    SBCL_HOME="" INSTALL_ROOT="$pkgdir/usr" sh install.sh
+
+    # drop unwanted files
+    rm -rf $PKG/usr/share/doc/
+    find "$PKG" \( -name Makefile -o -name .cvsignore \) -delete
+    find "$PKG/usr/share/sbcl-source" -type f \     \( -name \*.fasl -o -name \*.o -o -name \*.log -o -name \*.so -o -name a.out \) -delete
+}
